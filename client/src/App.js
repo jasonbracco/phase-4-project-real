@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from "react";
+import { Route, Routes } from "react-router-dom";
+import LoginPage from "./LoginPage"
+import NavBar from "./NavBar"
 
 function App() {
+
+  const [user, setUser] = useState(null)
+
+  //auto login if user matches
+  useEffect(() => {
+    fetch ("/api/login").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
+  if (!user) return <LoginPage setUser={setUser}/> 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+      <NavBar setUser={setUser}/>
+      <Routes>
+        <Route
+          path="/cities"
+          // element={
+          //   <Cities />
+          // }
+        />
+      </Routes>
+    </div> 
   );
 }
 
