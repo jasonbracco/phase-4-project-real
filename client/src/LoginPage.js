@@ -24,11 +24,6 @@ function LoginPage({setUser}) {
                             Oops!  Go Back...
                         </button>
                         <SignupForm setUser={setUser}/>
-                        <p>
-                            <button>
-                                Sign Up!
-                            </button>
-                        </p>
                     </div>
                 }   
             </div>

@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+// import Error from "./Error"
 
 function SignupForm({setUser}){
 
@@ -8,30 +9,30 @@ function SignupForm({setUser}){
     const [age, setAge] = useState("")
     const [bio, setBio] = useState("")
     const [imageURL, setImageURL] = useState("")
-    const [errors, setErrors] = useState([])
+    // const [errors, setErrors] = useState([])
 
     function handleSignupSubmit(e){
         e.preventDefault()
-        fetch("ADD IN ROUTE", {
+        fetch("/frontend/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                username: username,
-                password: password,
+                username,
+                password,
                 password_confirmation: passwordConfirmation,
-                age: age,
-                bio: bio,
+                age,
+                bio,
                 image_url: imageURL
             })
         }).then((response) => {
             if (response.ok){
                 response.json().then((user) => setUser(user))
             }
-            else{
-                response.json().then((error) => setErrors(error.errors))
-            }
+            // else{
+            //     response.json().then((error) => setErrors(error.errors))
+            // }
         })
 
     }
@@ -92,9 +93,15 @@ function SignupForm({setUser}){
                 placeholder="Profile Picture"
                 onChange={(e) => setImageURL(e.target.value)}
             />
-            <div className="login_erors">
-                {errors.map(error => error)}
-            </div>
+            <br></br>
+            <button type="submit">
+                Sign Up!
+            </button>
+            {/* <div className="login_erors">
+                {errors.map((error) => (
+                    <Error key={error}>{error}</Error>
+                ))}
+            </div> */}
         </form>
     )
 }
