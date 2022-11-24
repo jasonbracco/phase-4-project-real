@@ -52,7 +52,9 @@ function LoginForm({setUser}){
             </button>
             </form>
             <div className="login_erors">
-                {errors.map(error => error)}
+                {errors.map((error) => (
+                    <Error key={error}>{error}</Error>
+                ))}
             </div>
         </div>
 
