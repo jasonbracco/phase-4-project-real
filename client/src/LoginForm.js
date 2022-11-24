@@ -8,7 +8,8 @@ function LoginForm({setUser}){
 
     function handleLoginSubmit(e){
         e.preventDefault()
-        fetch("ADD IN ROUTE", {
+        setErrors([])
+        fetch("/frontend/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -45,6 +46,10 @@ function LoginForm({setUser}){
                     placeholder="Password"
                     onChange={(e) => setPassword(e.target.value)}
                 />
+            <br></br>
+            <button type="submit">
+                Sign In!
+            </button>
             </form>
             <div className="login_erors">
                 {errors.map(error => error)}

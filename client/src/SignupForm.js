@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-// import Error from "./Error"
+import Error from "./Error"
 
 function SignupForm({setUser}){
 
@@ -9,10 +9,11 @@ function SignupForm({setUser}){
     const [age, setAge] = useState("")
     const [bio, setBio] = useState("")
     const [imageURL, setImageURL] = useState("")
-    // const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState([])
 
     function handleSignupSubmit(e){
         e.preventDefault()
+        setErrors([]);
         fetch("/frontend/signup", {
             method: "POST",
             headers: {
@@ -30,9 +31,9 @@ function SignupForm({setUser}){
             if (response.ok){
                 response.json().then((user) => setUser(user))
             }
-            // else{
-            //     response.json().then((error) => setErrors(error.errors))
-            // }
+            else{
+                response.json().then((error) => setErrors(error.errors))
+            }
         })
 
     }
@@ -97,11 +98,11 @@ function SignupForm({setUser}){
             <button type="submit">
                 Sign Up!
             </button>
-            {/* <div className="login_erors">
+            <div className="login_erors">
                 {errors.map((error) => (
                     <Error key={error}>{error}</Error>
                 ))}
-            </div> */}
+            </div>
         </form>
     )
 }
