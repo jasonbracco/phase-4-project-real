@@ -13,16 +13,32 @@ const linkStyles = {
   };
   
   function NavBar({setUser}) {
-      return ( 
-        <div>
-            <NavLink
-                to="/cities"
-                style={linkStyles}
-                background= "darkblue"
-            >
-                Cities
-            </NavLink>
-        </div>
+
+    function handleLogoutClick(){
+      fetch("/logout", {method: "DELETE"}).then((response) => {
+        if (response.ok){
+          setUser(null)
+        }
+      })
+    }
+
+    return ( 
+      <div>
+          <NavLink
+              to="/cities"
+              style={linkStyles}
+              background= "darkblue"
+          >
+          Cities
+          </NavLink>
+          <NavLink
+              onClick={handleLogoutClick}
+              style={linkStyles}
+              background= "darkblue"
+          >
+          Logout
+          </NavLink>
+      </div>
       );
     }
 
