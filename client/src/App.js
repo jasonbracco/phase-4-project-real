@@ -4,6 +4,7 @@ import Homepage from "./Homepage"
 import LoginPage from "./LoginPage"
 import NavBar from "./NavBar"
 import Cities from "./Cities"
+import UserProfile from "./UserProfile"
 
 function App() {
 
@@ -34,6 +35,12 @@ function App() {
           path="/cities"
           element={
             <Cities />
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <UserProfile user={user} />
           }
         />
       </Routes>

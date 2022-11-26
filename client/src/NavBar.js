@@ -21,7 +21,7 @@ const linkStyles = {
           if (response.ok){
             setUser(null)
           }
-        })
+      })
     }
 
     return ( 
@@ -39,6 +39,13 @@ const linkStyles = {
               background= "darkblue"
           >
           Logout
+          </NavLink>
+          <NavLink
+              to="/profile"
+              style={linkStyles}
+              background= "darkblue"
+          >
+          Profile
           </NavLink>
       </div>
       );
