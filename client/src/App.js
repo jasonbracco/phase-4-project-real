@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { Route, Routes } from "react-router-dom";
 import LoginPage from "./LoginPage"
+import Homepage from "./Homepage"
 import NavBar from "./NavBar"
 
 function App() {
@@ -23,11 +24,17 @@ function App() {
       <NavBar setUser={setUser}/>
       <Routes>
         <Route
+          path="/"
+          element={
+            <Homepage />
+          }
+          />
+        {/* <Route
           path="/cities"
           // element={
           //   <Cities />
           // }
-        />
+        /> */}
       </Routes>
     </div> 
   );
