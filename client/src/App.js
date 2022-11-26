@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from "react";
 import { Route, Routes } from "react-router-dom";
-import LoginPage from "./LoginPage"
 import Homepage from "./Homepage"
+import LoginPage from "./LoginPage"
 import NavBar from "./NavBar"
+import Cities from "./Cities"
 
 function App() {
 
@@ -29,12 +30,12 @@ function App() {
             <Homepage />
           }
           />
-        {/* <Route
+        <Route
           path="/cities"
-          // element={
-          //   <Cities />
-          // }
-        /> */}
+          element={
+            <Cities />
+          }
+        />
       </Routes>
     </div> 
   );
