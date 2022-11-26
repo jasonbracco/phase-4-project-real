@@ -9,7 +9,7 @@ function App() {
 
   //auto login if user matches
   useEffect(() => {
-    fetch ("/frontend/me").then((response) => {
+    fetch ("/me").then((response) => {
       if (response.ok) {
         response.json().then((user) => setUser(user));
       }

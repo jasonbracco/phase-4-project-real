@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Error from "./Error"
+
 
 function LoginForm({setUser}){
 
@@ -9,7 +11,7 @@ function LoginForm({setUser}){
     function handleLoginSubmit(e){
         e.preventDefault()
         setErrors([])
-        fetch("/frontend/login", {
+        fetch("/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
