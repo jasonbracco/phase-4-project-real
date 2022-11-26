@@ -15,11 +15,13 @@ const linkStyles = {
   function NavBar({setUser}) {
 
     function handleLogoutClick(){
-      fetch("/logout", {method: "DELETE"}).then((response) => {
-        if (response.ok){
-          setUser(null)
-        }
-      })
+      fetch("/logout", {
+        method: "DELETE"})
+        .then((response) => {
+          if (response.ok){
+            setUser(null)
+          }
+        })
     }
 
     return ( 
