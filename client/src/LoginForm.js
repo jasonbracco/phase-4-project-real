@@ -26,6 +26,7 @@ function LoginForm({setUser}){
             }
         })
     }
+    console.log(errors)
 
     return(
         <div>
