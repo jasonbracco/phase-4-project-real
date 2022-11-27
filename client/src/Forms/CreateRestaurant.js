@@ -4,7 +4,9 @@ function CreateRestaurant(){
 
     const [restaurantName, setRestaurantName] = useState("")
     const [cuisine, setCuisine] = useState("")
-    const [seats, setSeats] = useState(null)
+    const [seats, setSeats] = useState()
+    // const [cityID, setCityID] = useState()
+
 
 
     function handleRestaurantSubmit(e){
@@ -31,7 +33,7 @@ function CreateRestaurant(){
                     placeholder="Restaurant Name"
                     onChange={(e) => setRestaurantName(e.target.value)}
                 />
-                <h3>Cuisine:</h3>
+                <h3>Cuisine</h3>
                 <input
                     type="text"
                     name="cuisine"
@@ -40,7 +42,7 @@ function CreateRestaurant(){
                     placeholder="Cuisine"
                     onChange={(e) => setCuisine(e.target.value)}
                 />
-                <h3>Number of Seats:</h3>
+                <h3>Number of Seats</h3>
                 <input
                     type="text"
                     name="seats"

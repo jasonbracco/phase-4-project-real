@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 function CreateReview(){
 
     const [content, setContent] = useState("")
+    // const [restaurantID, setRestaurantID] = useState()
 
     function handleReviewSubmit(e){
         e.preventDefault()
@@ -19,7 +20,7 @@ function CreateReview(){
                         <option key={restaurant.id} value={restaurant.id}>{restaurant.name}</option>
                     ))}
               </select> */}
-                <h3>Provide your review:</h3>
+                <h3>Provide your review</h3>
                 <input
                     type="text"
                     name="content"

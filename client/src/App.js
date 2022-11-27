@@ -10,6 +10,8 @@ import CreateNew from "./CreateNew"
 function App() {
 
   const [user, setUser] = useState(null)
+  const [restaurants, setRestaurants] = useState([])
+  const [cities, setCities] = useState([])
 
   //auto login if user matches
   useEffect(() => {
