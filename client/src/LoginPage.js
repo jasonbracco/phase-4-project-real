@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import LoginForm from "./LoginForm"
-import SignupForm from "./SignupForm"
+import LoginForm from "./Forms/LoginForm"
+import SignupForm from "./Forms/SignupForm"
 
 function LoginPage({setUser}) {
 
