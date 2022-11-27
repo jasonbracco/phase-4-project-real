@@ -22,6 +22,16 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    fetch("/cities/index")
+    .then(response => response.json())
+    .then(city => setCities(city))
+  }, [])
+
+  function handleAddCity(newCity){
+    setCities([...cities, newCity])
+  }
+
   if (!user) return <LoginPage setUser={setUser}/> 
 
   return (
@@ -37,7 +47,7 @@ function App() {
         <Route
           path="/cities"
           element={
-            <Cities cities={cities}/>
+            <Cities cities={cities} />
           }
         />
         <Route
@@ -49,7 +59,7 @@ function App() {
         <Route
           path="/createnew"
           element={
-            <CreateNew user={user} cities={cities} restaurants={restaurants}/>
+            <CreateNew user={user} cities={cities} restaurants={restaurants} onAddCity={handleAddCity}/>
           }
         />
       </Routes>

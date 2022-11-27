@@ -1,14 +1,30 @@
 import React, {useState} from 'react'
+import Error from "../Error"
 import "../index.css"
 
-
-function CreateCity(){
+function CreateCity({onAddCity}){
 
     const [city, setCity] = useState("")
+    const [errors, setErrors] = useState([])
 
     function handleCitySubmit(e){
         e.preventDefault()
-        console.log('sup')
+        fetch("/cities/create", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/JSON",
+            },
+            body: JSON.stringify({
+                name: city
+            })
+        }).then((response) => {
+            if (response.ok){
+                response.json().then((city) => onAddCity(city))
+            }
+            else{
+                response.json().then((error) => setErrors(error))
+            }
+        })
     }
 
     return(
@@ -28,6 +44,11 @@ function CreateCity(){
                     Add City
                 </button>
             </form>
+            <div>
+                {errors.map((error) => (
+                    <Error key={error}>{error}</Error>
+                ))}
+            </div>
         </div>
     )
 }
