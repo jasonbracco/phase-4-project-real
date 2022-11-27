@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import "../index.css"
+
 
 function CreateCity(){
 
@@ -12,7 +14,7 @@ function CreateCity(){
     return(
         <div className="city-form">
             <form onSubmit={handleCitySubmit}>
-                <h3>Add in a new City</h3>
+                <h3>Add a new City</h3>
                 <input
                     type="text"
                     name="city"

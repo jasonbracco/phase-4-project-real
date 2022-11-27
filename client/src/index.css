@@ -1,13 +1,30 @@
-body {
+.form-container{
+  width: 100%;
+  height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.city-form {
+  padding: 20px;
+  width: 20%;
+  height: 100%;
+  float: left;
+  border-collapse: collapse;
+}
+
+.restaurant-form {
+  padding: 20px;
+  width: 20%;
+  height: 100%;
+  float: left;
+  border-collapse: collapse;
+}
+
+.review-form {
+  padding: 20px;
+  width: 40%;
+  height: 100%;
+  position: relative;
+  float: left;
+  border-collapse: collapse;
 }
