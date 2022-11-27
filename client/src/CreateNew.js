@@ -1,12 +1,12 @@
 import React from "react"
 
-function CreateReview({user}){
+function CreateNew({user}){
 
 
     return(
 
         <div>
-            Create a review here
+            Create all new items here
         </div>
     )
     
