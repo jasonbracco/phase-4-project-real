@@ -9,8 +9,8 @@ function CreateNew({user, cities, restaurants}){
     return(
         <div className="form-container">
             <CreateCity />
-            <CreateReview user={user} restaurants={restaurants}/>
             <CreateRestaurant cities={cities}/>
+            <CreateReview user={user} restaurants={restaurants}/>
         </div>
     )
     

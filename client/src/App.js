@@ -37,7 +37,7 @@ function App() {
         <Route
           path="/cities"
           element={
-            <Cities />
+            <Cities cities={cities}/>
           }
         />
         <Route
@@ -49,7 +49,7 @@ function App() {
         <Route
           path="/createnew"
           element={
-            <CreateNew user={user} />
+            <CreateNew user={user} cities={cities} restaurants={restaurants}/>
           }
         />
       </Routes>
