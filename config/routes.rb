@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :restaurants, only: [:create]
-  resources :cities, only: [:create]
+  resources :cities, only: [:create, :index]
   resources :reviews, only: [:create]
   post "/login", to: "sessions#create"
   post "/signup", to: "users#create"
