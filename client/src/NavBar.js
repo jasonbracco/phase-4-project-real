@@ -34,13 +34,6 @@ const linkStyles = {
           Cities
           </NavLink>
           <NavLink
-              onClick={handleLogoutClick}
-              style={linkStyles}
-              background= "darkblue"
-          >
-          Logout
-          </NavLink>
-          <NavLink
               to="/profile"
               style={linkStyles}
               background= "darkblue"
@@ -53,6 +46,13 @@ const linkStyles = {
               background= "darkblue"
           >
           Create
+          </NavLink>
+          <NavLink
+              onClick={handleLogoutClick}
+              style={linkStyles}
+              background= "darkblue"
+          >
+          Logout
           </NavLink>
       </div>
       );
