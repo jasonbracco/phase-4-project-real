@@ -47,6 +47,13 @@ const linkStyles = {
           >
           Profile
           </NavLink>
+          <NavLink
+              to="/createnew"
+              style={linkStyles}
+              background= "darkblue"
+          >
+          Create
+          </NavLink>
       </div>
       );
     }

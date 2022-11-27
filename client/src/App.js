@@ -5,6 +5,7 @@ import LoginPage from "./LoginPage"
 import NavBar from "./NavBar"
 import Cities from "./Cities"
 import UserProfile from "./UserProfile"
+import CreateNew from "./CreateNew"
 
 function App() {
 
@@ -41,6 +42,12 @@ function App() {
           path="/profile"
           element={
             <UserProfile user={user} />
+          }
+        />
+        <Route
+          path="/createnew"
+          element={
+            <CreateNew user={user} />
           }
         />
       </Routes>
