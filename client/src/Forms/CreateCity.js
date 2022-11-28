@@ -6,7 +6,6 @@ function CreateCity({onAddCity}){
 
     const [city, setCity] = useState("")
     const [errors, setErrors] = useState([])
-    console.log(city)
 
     function handleCitySubmit(e){
         e.preventDefault()
