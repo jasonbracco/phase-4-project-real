@@ -7,10 +7,10 @@ function LoginForm({setUser}){
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [errors, setErrors] = useState([]) 
+ 
 
     function handleLoginSubmit(e){
         e.preventDefault()
-        setErrors([])
         fetch("/login", {
             method: "POST",
             headers: {
@@ -26,6 +26,8 @@ function LoginForm({setUser}){
             }
         })
     }
+
+    console.log(errors)
     
     return(
         <div>
@@ -53,9 +55,9 @@ function LoginForm({setUser}){
                 Sign In!
             </button>
             </form>
-            <div className="login_erors">
+            <div>
                 {errors.map((error) => (
-                    <Error key={error}>{error}</Error>
+                    <Error key={error} error={error} />
                 ))}
             </div>
         </div>

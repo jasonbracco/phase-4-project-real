@@ -38,6 +38,8 @@ function SignupForm({setUser}){
         })
     }
 
+    console.log(errors)
+
     return (
         <form onSubmit={handleSignupSubmit}>
             <h3>Username:</h3>
@@ -109,7 +111,7 @@ function SignupForm({setUser}){
             </button>
             <div className="login_erors">
                 {errors.map((error) => (
-                    <Error key={error}>{error}</Error>
+                    <Error key={error} error={error} />
                 ))}
             </div>
         </form>

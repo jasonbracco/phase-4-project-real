@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Error({ children }) {
+function Error({ error }) {
     return (
-        <div>{children}</div>
+        <div>{error}</div>
     );
   }
 

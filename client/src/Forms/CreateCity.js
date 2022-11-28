@@ -6,25 +6,28 @@ function CreateCity({onAddCity}){
 
     const [city, setCity] = useState("")
     const [errors, setErrors] = useState([])
+    console.log(city)
 
     function handleCitySubmit(e){
         e.preventDefault()
-        fetch("/cities/create", {
+        setErrors([])
+        fetch("/cities", {
             method: "POST",
             headers: {
                 "Content-type": "application/JSON",
             },
             body: JSON.stringify({
-                name: city
+                name: city,
             })
         }).then((response) => {
             if (response.ok){
                 response.json().then((city) => onAddCity(city))
             }
             else{
-                response.json().then((error) => setErrors(error))
+                response.json().then((error) => setErrors(error.errors))
             }
         })
+        setCity("")
     }
 
     return(
@@ -46,7 +49,7 @@ function CreateCity({onAddCity}){
             </form>
             <div>
                 {errors.map((error) => (
-                    <Error key={error}>{error}</Error>
+                    <Error key={error} error={error} />
                 ))}
             </div>
         </div>

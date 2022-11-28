@@ -1,12 +1,14 @@
 import React from 'react'
+import City from './City'
 
-function Cities(){
-
+function Cities({cities}){
+    console.log(cities)
 
     return(
-
         <div>
-            Cities will go here!
+            {cities.map((city) => {
+                return <City key={city.id} city={city}/>
+            })}
         </div>
     )
 }

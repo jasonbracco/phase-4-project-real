@@ -12,7 +12,7 @@ function App() {
   const [user, setUser] = useState(null)
   const [restaurants, setRestaurants] = useState([])
   const [cities, setCities] = useState([])
-
+  console.log(user)
   //auto login if user matches
   useEffect(() => {
     fetch ("/me").then((response) => {
@@ -23,7 +23,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("/cities/index")
+    fetch("/allcities")
     .then(response => response.json())
     .then(city => setCities(city))
   }, [])
