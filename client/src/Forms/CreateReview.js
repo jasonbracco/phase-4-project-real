@@ -3,14 +3,34 @@ import Error from "../Error"
 import "../index.css"
 
 
-function CreateReview({onAddReview, restaurants}){
+function CreateReview({onAddReview, restaurants, user}){
 
     const [content, setContent] = useState("")
     const [restaurantID, setRestaurantID] = useState()
+    const [errors, setErrors] = useState([])
 
     function handleReviewSubmit(e){
         e.preventDefault()
-        console.log('sup')
+        setErrors([])
+        fetch("/reviews", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/JSON",
+            },
+            body: JSON.stringify({
+                restaurant_id: restaurantID,
+                content: content,
+                user_id: user.id
+            })
+        }).then((response) => {
+            if (response.ok){
+                response.json().then((review) => onAddReview(review))
+            }
+            else{
+                response.json().then((error) => setErrors(error.errors))
+            }
+        })
+        setContent("")
     }
 
     return(
@@ -37,6 +57,11 @@ function CreateReview({onAddReview, restaurants}){
                     Add Review
                 </button>
             </form>
+            <div>
+                {errors.map((error) => (
+                    <Error key={error.status} error={error} />
+                ))}
+            </div>
         </div>
     )
 }

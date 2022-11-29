@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :cities, only: [:create]
   resources :reviews, only: [:create]
   get "/allrestaurants", to: "restaurants#index"
+  get "/allreviews", to: "reviews#index"
   get "/allcities", to: "cities#index"
   post "/login", to: "sessions#create"
   post "/signup", to: "users#create"

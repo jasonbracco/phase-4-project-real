@@ -5,8 +5,6 @@ import CreateRestaurant from './Forms/CreateRestaurant'
 import "./index.css"
 
 function CreateNew({user, cities, restaurants, onAddCity, onAddRestaurant, onAddReview}){
-    console.log(restaurants)
-
 
     return(
         <div className="form-container">

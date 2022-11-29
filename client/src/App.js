@@ -13,6 +13,7 @@ function App() {
   const [restaurants, setRestaurants] = useState([])
   const [cities, setCities] = useState([])
   const [reviews, setReviews] = useState([])
+  console.log(reviews)
 
   //auto login if user matches
   useEffect(() => {
@@ -33,6 +34,12 @@ function App() {
     fetch("/allrestaurants")
     .then(response => response.json())
     .then(restaurant => setRestaurants(restaurant))
+  }, [])
+
+  useEffect(() => {
+    fetch("/allreviews")
+    .then(response => response.json())
+    .then(review => setRestaurants(review))
   }, [])
 
   function handleAddCity(newCity){
