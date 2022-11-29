@@ -29,13 +29,12 @@ function CreateRestaurant({cities, onAddRestaurant}){
                 response.json().then((restaurant) => onAddRestaurant(restaurant))
             }
             else{
-                response.json().then((error) => console.log(error.error))
+                response.json().then((error) => setErrors(error.errors))
             }
         })
         setRestaurantName("")
         setCuisine("")
         setSeats("")
-        setCityID()
     }
 
     return(
