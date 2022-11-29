@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
+import Error from "../Error"
 import "../index.css"
 
 
-function CreateReview(){
+function CreateReview({onAddReview, restaurants}){
 
     const [content, setContent] = useState("")
-    // const [restaurantID, setRestaurantID] = useState()
+    const [restaurantID, setRestaurantID] = useState()
 
     function handleReviewSubmit(e){
         e.preventDefault()
@@ -15,13 +16,13 @@ function CreateReview(){
     return(
         <div className="review-form">
             <form onSubmit={handleReviewSubmit}>
-                {/* <h3>Select restaurant to review:</h3>
+                <h3>Select restaurant to review:</h3>
                 <select onChange={(e) => setRestaurantID(e.target.value)}>
                     <option>Select</option>
                     {restaurants.map((restaurant) => (
                         <option key={restaurant.id} value={restaurant.id}>{restaurant.name}</option>
                     ))}
-              </select> */}
+              </select>
                 <h3>Provide your review</h3>
                 <input
                     type="text"
