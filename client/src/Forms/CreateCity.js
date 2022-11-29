@@ -9,7 +9,6 @@ function CreateCity({onAddCity}){
 
     function handleCitySubmit(e){
         e.preventDefault()
-        setErrors([])
         fetch("/cities", {
             method: "POST",
             headers: {

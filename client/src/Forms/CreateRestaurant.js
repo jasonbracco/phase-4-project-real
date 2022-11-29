@@ -1,19 +1,41 @@
 import React, {useState} from 'react'
+import Error from "../Error"
 import "../index.css"
 
 
-function CreateRestaurant({cities}){
+function CreateRestaurant({cities, onAddRestaurant}){
 
     const [restaurantName, setRestaurantName] = useState("")
     const [cuisine, setCuisine] = useState("")
-    const [seats, setSeats] = useState()
+    const [seats, setSeats] = useState("")
     const [cityID, setCityID] = useState()
-
-
+    const [errors, setErrors] = useState([])
 
     function handleRestaurantSubmit(e){
         e.preventDefault()
-        console.log('sup')
+        fetch("/restaurants", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/JSON",
+            },
+            body: JSON.stringify({
+                city_id: cityID,
+                name: restaurantName,
+                cuisine: cuisine,
+                seats: seats
+            })
+        }).then((response) => {
+            if (response.ok){
+                response.json().then((restaurant) => onAddRestaurant(restaurant))
+            }
+            else{
+                response.json().then((error) => console.log(error.error))
+            }
+        })
+        setRestaurantName("")
+        setCuisine("")
+        setSeats("")
+        setCityID()
     }
 
     return(
@@ -58,6 +80,11 @@ function CreateRestaurant({cities}){
                     Add Restaurant
                 </button>
             </form>
+            <div>
+                {errors.map((error) => (
+                    <Error key={error.status} error={error} />
+                ))}
+            </div>
         </div>
     )
 }

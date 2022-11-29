@@ -32,6 +32,10 @@ function App() {
     setCities([...cities, newCity])
   }
 
+  function handleAddRestaurant(newRestaurant){
+    setRestaurants([...restaurants, newRestaurant])
+  }
+
   if (!user) return <LoginPage setUser={setUser}/> 
 
   return (
@@ -59,7 +63,7 @@ function App() {
         <Route
           path="/createnew"
           element={
-            <CreateNew user={user} cities={cities} restaurants={restaurants} onAddCity={handleAddCity}/>
+            <CreateNew user={user} cities={cities} restaurants={restaurants} onAddCity={handleAddCity} onAddRestaurant={handleAddRestaurant}/>
           }
         />
       </Routes>
