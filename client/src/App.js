@@ -29,6 +29,12 @@ function App() {
     .then(city => setCities(city))
   }, [])
 
+  useEffect(() => {
+    fetch("/allrestaurants")
+    .then(response => response.json())
+    .then(restaurant => setRestaurants(restaurant))
+  }, [])
+
   function handleAddCity(newCity){
     setCities([...cities, newCity])
   }
