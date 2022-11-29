@@ -2,12 +2,12 @@ import React, {useState} from 'react'
 import "../index.css"
 
 
-function CreateRestaurant(){
+function CreateRestaurant({cities}){
 
     const [restaurantName, setRestaurantName] = useState("")
     const [cuisine, setCuisine] = useState("")
     const [seats, setSeats] = useState()
-    // const [cityID, setCityID] = useState()
+    const [cityID, setCityID] = useState()
 
 
 
@@ -19,13 +19,13 @@ function CreateRestaurant(){
     return(
         <div className="restaurant-form">
             <form onSubmit={handleRestaurantSubmit}>
-            {/* <h3>City:</h3>
+            <h3>City:</h3>
                 <select onChange={(e) => setCityID(e.target.value)}>
                     <option>Select</option>
                         {cities.map((city) => (
                             <option key={city.id} value={city.id}>{city.name}</option>
                         ))}
-                </select> */}
+                </select>
                 <h3>Restaurant Name</h3>
                 <input
                     type="text"
