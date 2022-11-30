@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from "react";
 import { Route, Routes } from "react-router-dom";
-import Homepage from "./Homepage"
-import LoginPage from "./LoginPage"
+import Homepage from "./Pages/Homepage"
+import LoginPage from "./Pages/LoginPage"
 import NavBar from "./NavBar"
-import Cities from "./Cities"
-import UserProfile from "./UserProfile"
-import CreateNew from "./CreateNew"
+import Cities from "./Pages/Cities"
+import UserProfile from "./Pages/UserProfile"
+import CreateNew from "./Pages/CreateNew"
+import Reviews from "./Pages/Reviews"
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
   const [cities, setCities] = useState([])
   const [reviews, setReviews] = useState([])
   console.log(reviews)
+  console.log(restaurants)
 
   //auto login if user matches
   useEffect(() => {
@@ -39,7 +41,7 @@ function App() {
   useEffect(() => {
     fetch("/allreviews")
     .then(response => response.json())
-    .then(review => setRestaurants(review))
+    .then(review => setReviews(review))
   }, [])
 
   function handleAddCity(newCity){
@@ -70,6 +72,12 @@ function App() {
           path="/cities"
           element={
             <Cities cities={cities} />
+          }
+        />
+        <Route
+          path="/allreviews"
+          element={
+            <Reviews reviews={reviews}/>
           }
         />
         <Route

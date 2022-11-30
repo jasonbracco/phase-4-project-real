@@ -41,6 +41,13 @@ const linkStyles = {
           Profile
           </NavLink>
           <NavLink
+              to="/allreviews"
+              style={linkStyles}
+              background= "darkblue"
+          >
+          Reviews
+          </NavLink>
+          <NavLink
               to="/createnew"
               style={linkStyles}
               background= "darkblue"
