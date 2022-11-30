@@ -69,9 +69,9 @@ function App() {
           }
         />
         <Route
-          path="/cities"
+          path="/restaurantpage"
           element={
-            <Cities cities={cities} />
+            <Cities cities={cities} reviews={reviews} restaurants={restaurants} />
           }
         />
         <Route

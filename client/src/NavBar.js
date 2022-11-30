@@ -34,11 +34,11 @@ const linkStyles = {
           Home
           </NavLink>
           <NavLink
-              to="/cities"
+              to="/restaurantpage"
               style={linkStyles}
               background= "darkblue"
           >
-          Cities
+          Places to Eat
           </NavLink>
           <NavLink
               to="/profile"
