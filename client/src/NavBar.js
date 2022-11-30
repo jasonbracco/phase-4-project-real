@@ -27,6 +27,13 @@ const linkStyles = {
     return ( 
       <div>
           <NavLink
+              to="/"
+              style={linkStyles}
+              background= "darkblue"
+          >
+          Home
+          </NavLink>
+          <NavLink
               to="/cities"
               style={linkStyles}
               background= "darkblue"
