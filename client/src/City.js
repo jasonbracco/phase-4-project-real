@@ -1,7 +1,8 @@
 import React from 'react'
+import './index.css'
 
 function City({city, restaurants, reviews}) {
-    
+
     function handleClick(){
         console.log("you clicked me")
     }
