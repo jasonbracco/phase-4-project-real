@@ -14,8 +14,6 @@ function App() {
   const [restaurants, setRestaurants] = useState([])
   const [cities, setCities] = useState([])
   const [reviews, setReviews] = useState([])
-  console.log(reviews)
-  console.log(restaurants)
 
   //auto login if user matches
   useEffect(() => {
