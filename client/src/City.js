@@ -42,8 +42,6 @@ function City({city, restaurants, reviews}) {
                 </div>
                 </div>
                 )}
-            {/* <break></break>
-            <break></break> */}
         </div>
     )
 }
