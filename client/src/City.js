@@ -35,7 +35,7 @@ function City({city, restaurants, reviews}) {
                 <div className="restaurants-for-specified-city">
                     <div>
                         {filteredRestaurants.map((restaurant) => {
-                            return <Restaurant key={restaurant.id} restaurant={restaurant}/>
+                            return <Restaurant key={restaurant.id} restaurant={restaurant} reviews={reviews}/>
                         }
                         )}          
                     </div>

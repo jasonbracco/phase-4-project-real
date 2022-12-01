@@ -30,7 +30,7 @@
 }
 
 .city-container {
-  width: 35%;
+  width: 45%;
   height: 100%;
   float: left;
 }
@@ -38,3 +38,5 @@
 .each-city {
   padding: 5px
 }
+
+
