@@ -73,12 +73,6 @@ function App() {
           }
         />
         <Route
-          path="/allreviews"
-          element={
-            <Reviews reviews={reviews}/>
-          }
-        />
-        <Route
           path="/profile"
           element={
             <UserProfile user={user} />
