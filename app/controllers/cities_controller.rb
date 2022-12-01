@@ -10,6 +10,13 @@ class CitiesController < ApplicationController
         render json: city
     end
 
+    def show
+        city=City.find(params[:id])
+        render json: city
+        puts params
+    end
+
+
     private
 
     def city_params

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Restaurant from './Restaurant'
 import './index.css'
 
@@ -6,6 +6,11 @@ import './index.css'
 function City({city, restaurants, reviews}) {
 
     const [citySelected, setCitySelected] = useState(true)
+    const [jsonCity, setJsonCity] = useState([])
+    const [cityID, setCityID] = useState(city.id)
+    console.log(cityID)
+
+    //Need to use backend to get restaurants associated with each city
 
     const filteredRestaurants = restaurants.filter((restaurant) => {
         if(restaurant.city_id === city.id){
@@ -13,12 +18,13 @@ function City({city, restaurants, reviews}) {
         }
     })
 
-    console.log(filteredRestaurants)
-        
-    //filter through restaurants and return the restaurants that match the current city id
+    useEffect(() => {
+        fetch(`/cities/${cityID}`)
+            .then(response => response.json())
+            .then(city => console.log(city))
+    }, [])    
 
-    // This is where each city will be click-able, and it will show you all restaurants in each city.  
-    //Need to pass in restaurants as props, then, onClick, display restaurants where city_id === city.id
+
 
     return(
         <div>
