@@ -3,19 +3,13 @@ import Restaurant from './Restaurant'
 import './index.css'
 
 
-function City({city, restaurants, reviews}) {
+function City({city, reviews}) {
 
     const [citySelected, setCitySelected] = useState(true)
     const [associatedRestaurants, setAssociatedRestaurants] = useState([])
     const [cityID, setCityID] = useState(city.id)
 
     //Need to use backend to get restaurants associated with each city
-
-    // const filteredRestaurants = restaurants.filter((restaurant) => {
-    //     if(restaurant.city_id === city.id){
-    //         return restaurant
-    //     }
-    // })
 
     useEffect(() => {
         fetch(`/cities/${cityID}`)

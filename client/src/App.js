@@ -6,7 +6,6 @@ import NavBar from "./NavBar"
 import Cities from "./Pages/Cities"
 import UserProfile from "./Pages/UserProfile"
 import CreateNew from "./Pages/CreateNew"
-import Reviews from "./Pages/Reviews"
 
 function App() {
 
@@ -30,6 +29,7 @@ function App() {
     .then(city => setCities(city))
   }, [])
 
+  //should move this into the CreateNew component, not needed in App
   useEffect(() => {
     fetch("/allrestaurants")
     .then(response => response.json())
