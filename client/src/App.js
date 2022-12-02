@@ -10,7 +10,6 @@ import CreateNew from "./Pages/CreateNew"
 function App() {
 
   const [user, setUser] = useState(null)
-  const [restaurants, setRestaurants] = useState([])
   const [cities, setCities] = useState([])
   const [reviews, setReviews] = useState([])
 
@@ -29,13 +28,6 @@ function App() {
     .then(city => setCities(city))
   }, [])
 
-  //should move this into the CreateNew component, not needed in App
-  useEffect(() => {
-    fetch("/allrestaurants")
-    .then(response => response.json())
-    .then(restaurant => setRestaurants(restaurant))
-  }, [])
-
   useEffect(() => {
     fetch("/allreviews")
     .then(response => response.json())
@@ -44,10 +36,6 @@ function App() {
 
   function handleAddCity(newCity){
     setCities([...cities, newCity])
-  }
-
-  function handleAddRestaurant(newRestaurant){
-    setRestaurants([...restaurants, newRestaurant])
   }
 
   function handleAddReview(newReview){
@@ -69,7 +57,7 @@ function App() {
         <Route
           path="/restaurantpage"
           element={
-            <Cities cities={cities} reviews={reviews} restaurants={restaurants} />
+            <Cities cities={cities} reviews={reviews} />
           }
         />
         <Route
@@ -81,7 +69,7 @@ function App() {
         <Route
           path="/createnew"
           element={
-            <CreateNew user={user} cities={cities} restaurants={restaurants} onAddCity={handleAddCity} onAddRestaurant={handleAddRestaurant} onAddReview={handleAddReview}/>
+            <CreateNew user={user} cities={cities} onAddCity={handleAddCity} onAddReview={handleAddReview}/>
           }
         />
       </Routes>
