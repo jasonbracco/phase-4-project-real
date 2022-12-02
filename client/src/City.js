@@ -6,23 +6,23 @@ import './index.css'
 function City({city, restaurants, reviews}) {
 
     const [citySelected, setCitySelected] = useState(true)
-    const [jsonCity, setJsonCity] = useState([])
+    const [associatedRestaurants, setAssociatedRestaurants] = useState([])
     const [cityID, setCityID] = useState(city.id)
-    console.log(cityID)
 
     //Need to use backend to get restaurants associated with each city
 
-    const filteredRestaurants = restaurants.filter((restaurant) => {
-        if(restaurant.city_id === city.id){
-            return restaurant
-        }
-    })
+    // const filteredRestaurants = restaurants.filter((restaurant) => {
+    //     if(restaurant.city_id === city.id){
+    //         return restaurant
+    //     }
+    // })
 
     useEffect(() => {
         fetch(`/cities/${cityID}`)
             .then(response => response.json())
-            .then(city => console.log(city))
+            .then(city => setAssociatedRestaurants(city.restaurants))
     }, [])    
+    console.log(associatedRestaurants)
 
 
 
@@ -40,7 +40,7 @@ function City({city, restaurants, reviews}) {
                 </div>
                 <div className="restaurants-for-specified-city">
                     <div>
-                        {filteredRestaurants.map((restaurant) => {
+                        {associatedRestaurants.map((restaurant) => {
                             return <Restaurant key={restaurant.id} restaurant={restaurant} reviews={reviews}/>
                         }
                         )}          
