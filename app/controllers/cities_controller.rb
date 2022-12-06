@@ -2,7 +2,7 @@ class CitiesController < ApplicationController
 
     def index
         cities=City.all 
-        render json: cities
+        render json: cities, include: ['restaurants', 'restaurants.reviews']
     end
 
     def create
@@ -13,7 +13,6 @@ class CitiesController < ApplicationController
     def show
         city=City.find(params[:id])
         render json: city
-        puts params
     end
 
 

@@ -25,8 +25,13 @@ function App() {
   useEffect(() => {
     fetch("/allcities")
     .then(response => response.json())
-    .then(city => setCities(city))
+    .then(city => {
+      setCities(city)
+    
+    })
   }, [])
+  console.log(cities)
+  console.log(cities.restaurants)
 
   useEffect(() => {
     fetch("/allreviews")
