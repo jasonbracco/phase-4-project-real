@@ -8,15 +8,16 @@ function City({city, reviews}) {
     const [citySelected, setCitySelected] = useState(true)
     const [associatedRestaurants, setAssociatedRestaurants] = useState([])
     const [cityID, setCityID] = useState(city.id)
+    console.log(city)
 
     //Need to use backend to get restaurants associated with each city
 
-    useEffect(() => {
-        fetch(`/cities/${cityID}`)
-            .then(response => response.json())
-            .then(city => setAssociatedRestaurants(city.restaurants))
-    }, [])    
-    console.log(associatedRestaurants)
+    // useEffect(() => {
+    //     fetch(`/cities/${cityID}`)
+    //         .then(response => response.json())
+    //         .then(city => setAssociatedRestaurants(city.restaurants))
+    // }, [])    
+    // console.log(associatedRestaurants)
 
 
 

@@ -14,12 +14,14 @@ function Cities({cities, reviews}){
 
     return(
         <div className="city-container">
-            <p>Here are all of the cities our users have dined:</p>
+            <p>Select a City to see the Restaurants that have been reviewed:</p>
             {citySelected ? (
-                <div className="cities" onClick={() => setCitySelected((citySelected) => !citySelected)}>
+                <div className="cities">
                     {cities.map((city) => 
                         <NavLink
-                        to={`restaurantpage/:${city.id}`}
+                        key={city.id}
+                        to={`/restaurants/${city.id}`}
+                        onClick={() => setCitySelected((citySelected) => !citySelected)}
                     >
                     {city.name}
                     <br></br>
@@ -28,12 +30,11 @@ function Cities({cities, reviews}){
                     <Routes>
                         {cities.map((city) => 
                             <Route 
-                                path={`restaurantpage/:${city.id}`} 
+                                path={`/restaurants/${city.id}`} 
                                 key={city.id} 
                                 element={city.name}
                                 component={<City city={city}/>}
-                            />                        
-                            
+                            />               
                         )}
                     </Routes>
 

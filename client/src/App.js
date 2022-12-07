@@ -30,8 +30,6 @@ function App() {
     
     })
   }, [])
-  console.log(cities)
-  console.log(cities.restaurants)
 
   useEffect(() => {
     fetch("/allreviews")
@@ -60,7 +58,7 @@ function App() {
           }
         />
         <Route
-          path="/restaurantpage"
+          path="/restaurants/*"
           element={
             <Cities cities={cities} reviews={reviews} />
           }

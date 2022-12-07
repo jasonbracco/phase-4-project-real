@@ -34,7 +34,7 @@ const linkStyles = {
           Home
           </NavLink>
           <NavLink
-              to="/restaurantpage"
+              to="/restaurants"
               style={linkStyles}
               background= "darkblue"
           >
