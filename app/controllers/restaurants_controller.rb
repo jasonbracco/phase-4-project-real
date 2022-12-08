@@ -11,6 +11,7 @@ class RestaurantsController < ApplicationController
     end
 
     def show
+        byebug
         restaurant=Restaurant.find_by(params[:id])
         render json: restaurant
     end

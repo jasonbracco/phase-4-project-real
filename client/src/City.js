@@ -1,48 +1,34 @@
-import React, {useState, useEffect} from 'react'
-import Restaurant from './Restaurant'
+import React, {useState} from 'react'
+import { useParams } from "react-router-dom";
+
+
+// import Restaurant from './Restaurant'
 import './index.css'
 
 
-function City({city, reviews}) {
+function City({cities}) {
+    const {id} = useParams()
 
-    const [citySelected, setCitySelected] = useState(true)
-    const [associatedRestaurants, setAssociatedRestaurants] = useState([])
-    const [cityID, setCityID] = useState(city.id)
-    console.log(city)
+    console.log(cities)
+    console.log(cities.filter((city) => {
+        if(city.id === id){
+            return city.restaurants
+        }
+    }))
 
-    //Need to use backend to get restaurants associated with each city
 
-    // useEffect(() => {
-    //     fetch(`/cities/${cityID}`)
-    //         .then(response => response.json())
-    //         .then(city => setAssociatedRestaurants(city.restaurants))
-    // }, [])    
-    // console.log(associatedRestaurants)
+    const associatedRestaurants = cities.filter((city) => {
+        if(city.id === id){
+            return city.restaurants
+        }
+    })
+
 
 
 
     return(
         <div>
-            {citySelected ? ( 
-                <div className="each-city" onClick={() => setCitySelected((citySelected) => !citySelected)}>
-                    {city.name}
-                </div>
-                ): 
-                (
-                <div className="city-with-restaurants">
-                <div onClick={() => setCitySelected((citySelected) => !citySelected)}>
-                    {city.name}
-                </div>
-                <div className="restaurants-for-specified-city">
-                    <div>
-                        {associatedRestaurants.map((restaurant) => {
-                            return <Restaurant key={restaurant.id} restaurant={restaurant} reviews={reviews}/>
-                        }
-                        )}          
-                    </div>
-                </div>
-                </div>
-                )}
+            {associatedRestaurants}
         </div>
     )
 }
