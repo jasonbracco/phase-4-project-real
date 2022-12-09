@@ -7,10 +7,9 @@ import './index.css'
 function City({cities}) {
     const {id} = useParams()
 
-
     const array = cities.find(city => city.id == id)
 
-    console.log(array.restaurants)
+    console.log(cities)
 
     return(
         <div className = "restaurant-list">
