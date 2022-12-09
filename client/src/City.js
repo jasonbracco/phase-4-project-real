@@ -1,34 +1,24 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import { useParams } from "react-router-dom";
-
-
-// import Restaurant from './Restaurant'
+import Restaurant from './Restaurant'
 import './index.css'
 
 
 function City({cities}) {
     const {id} = useParams()
 
-    const [cityId, setCityId] = useState(+id)
-    console.log(cities)
-    console.log(cityId)
-    // console.log(cities[0].cityId)
+    const array = cities.find(city => city.id == id)
 
-    const array = cities.filter((city) => {
-        if(id == city.id){
-            return city
-        }
-    })
-
-    console.log(array)
+    console.log(array.restaurants)
 
 
 
 
 
     return(
-        <div>
-            HI
+        <div className = "restaurant-list">
+            {array.restaurants.map((restaurant) => {
+                return <Restaurant key={restaurant.id} restaurant={restaurant}/>})}
         </div>
     )
 }

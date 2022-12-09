@@ -60,6 +60,7 @@ function App() {
         />
         <Route path="/restaurants/*" element={<Cities cities={cities} />} >
             <Route path=":id" element={<City cities={cities}/>} />
+              {/* <Route path="" */}
         </Route>
         <Route
           path="/profile"

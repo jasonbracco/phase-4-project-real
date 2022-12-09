@@ -1,14 +1,9 @@
 import React, {useState} from 'react'
-import { Route, Routes, Link, Outlet} from "react-router-dom";
-
-import City from '../City'
+import { Link, Outlet} from "react-router-dom";
 
 function Cities({cities}){
 
     const [citySelected, setCitySelected] = useState(true)
-
-//List out each one of the cities on the page
-//When one of them is clicked, the id of the city is read, and will bring you to a page showing its restaurants
 
     return(
         <div className="city-container">
@@ -30,7 +25,7 @@ function Cities({cities}){
                 ) : (
             <div>
                 <button onClick={() => setCitySelected((citySelected) => !citySelected)}>
-                    BACK
+                    <Link to="/restaurants">Back to Restaurants </Link>
                 </button> 
                 <Outlet />
             </div>
