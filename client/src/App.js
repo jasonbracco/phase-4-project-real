@@ -52,28 +52,13 @@ function App() {
     <div>
       <NavBar setUser={setUser}/>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Homepage />
-          }
-        />
-        <Route path="/restaurants/*" element={<Cities cities={cities} />} >
+        <Route path="/" element={<Homepage />} />
+        <Route path="/cities/*" element={<Cities cities={cities} />}>
             <Route path=":id" element={<City cities={cities}/>} />
-              {/* <Route path="" */}
+              {/* <Route path="/restaurants" element={<Restaurant restaurant={restaurant} />} /> */}
         </Route>
-        <Route
-          path="/profile"
-          element={
-            <UserProfile user={user} />
-          }
-        />
-        <Route
-          path="/createnew"
-          element={
-            <CreateNew user={user} cities={cities} onAddCity={handleAddCity} onAddReview={handleAddReview}/>
-          }
-        />
+        <Route path ="/profile" element={<UserProfile user={user} />} />
+        <Route path="createnew" element={<CreateNew user={user} cities={cities} onAddCity={handleAddCity} onAddReview={handleAddReview}/>} />
       </Routes>
     </div> 
   );

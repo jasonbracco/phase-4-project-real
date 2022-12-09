@@ -25,7 +25,7 @@ function Cities({cities}){
                 ) : (
             <div>
                 <button onClick={() => setCitySelected((citySelected) => !citySelected)}>
-                    <Link to="/restaurants">Back to Restaurants </Link>
+                    <Link to="/cities">Back to Cities</Link>
                 </button> 
                 <Outlet />
             </div>
