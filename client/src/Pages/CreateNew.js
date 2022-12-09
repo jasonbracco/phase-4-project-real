@@ -1,28 +1,15 @@
-import React, {useState, useEffect} from "react"
+import React from "react"
 import CreateCity from '../Forms/CreateCity'
 import CreateReview from '../Forms/CreateReview'
 import CreateRestaurant from '../Forms/CreateRestaurant'
 import "../index.css"
 
-function CreateNew({user, cities, onAddCity, onAddReview}){
-
-    const [restaurants, setRestaurants] = useState([])
-
-    useEffect(() => {
-        fetch("/allrestaurants")
-        .then(response => response.json())
-        .then(restaurant => setRestaurants(restaurant))
-      }, [])
-
-    function handleAddRestaurant(newRestaurant){
-        setRestaurants([...restaurants, newRestaurant])
-    }
-
+function CreateNew({user, cities, onAddCity, onAddReview, restaurants, onAddRestaurant}){
 
     return(
         <div className="form-container">
             <CreateCity onAddCity={onAddCity} />
-            <CreateRestaurant cities={cities} onAddRestaurant={handleAddRestaurant} />
+            <CreateRestaurant cities={cities} onAddRestaurant={onAddRestaurant}/>
             <CreateReview user={user} restaurants={restaurants} onAddReview={onAddReview}/>
         </div>
     )

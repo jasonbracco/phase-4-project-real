@@ -8,6 +8,8 @@ function CreateReview({onAddReview, restaurants, user}){
     const [content, setContent] = useState("")
     const [restaurantID, setRestaurantID] = useState()
     const [errors, setErrors] = useState([])
+
+    console.log(restaurants)
     
 
     function handleReviewSubmit(e){

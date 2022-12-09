@@ -7,9 +7,6 @@ function Restaurant({restaurant}){
 
     const [restaurantSelected, setRestaurantSelected] = useState(true)
 
-    console.log(restaurant.reviews)
-
-
     return(
         <div className="individual-restaurant">
             {restaurantSelected ? (
@@ -23,17 +20,17 @@ function Restaurant({restaurant}){
                     </button>
                 </div>
             ) : (
-                    <div>
+                    <div className="review-container">
                         <p>ID: {restaurant.id}</p>
                         <p>{restaurant.name}</p>
                         <p>Cuisine: {restaurant.cuisine}</p>
                         <p>Number of Seats: {restaurant.seats}</p>
                         <button onClick={() => setRestaurantSelected((restaurantSelected) => !restaurantSelected)}>
-                        <Link to={`reviews`}>return!</Link>
-                    </button>
-                        <Routes>
-                            <Route path="reviews/:id" element={<Reviews reviews={restaurant.reviews} />}></Route>
-                        </Routes>
+                        <Link to={`reviews`}>Hide Reviews</Link>
+                        </button>
+                            <Routes>
+                                <Route path="reviews/:id" element={<Reviews reviews={restaurant.reviews} />}></Route>
+                            </Routes>
                     </div>
             )}
         </div>

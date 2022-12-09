@@ -1,12 +1,10 @@
 import React from 'react'
-import { useParams} from "react-router-dom";
+// import { useParams} from "react-router-dom";
 import Review from '../Review'
 
 function Reviews({reviews}){
 
-    const {id} = useParams()
-    console.log(id)
-    console.log(reviews)
+    // const {id} = useParams()
 
     return(
         <div className="review">
