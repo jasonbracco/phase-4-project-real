@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
-import { Route, Routes, Link} from "react-router-dom";
+import { Route, Routes, Link, Outlet} from "react-router-dom";
 
 import City from '../City'
 
-function Cities({cities, reviews}){
+function Cities({cities}){
 
     const [citySelected, setCitySelected] = useState(true)
 
@@ -19,7 +19,7 @@ function Cities({cities, reviews}){
                 {cities.map((city) => 
                     <Link
                     key={city.id}
-                    to={`restaurants/${city.id}`}
+                    to={`${city.id}`}
                     onClick={() => setCitySelected((citySelected) => !citySelected)}
                     >
                     {city.name}
@@ -32,12 +32,7 @@ function Cities({cities, reviews}){
                 <button onClick={() => setCitySelected((citySelected) => !citySelected)}>
                     BACK
                 </button> 
-                <Routes>
-                    <Route 
-                        path="restaurants/:id"
-                        element={<City cities={cities}/>}
-                    />               
-                </Routes>
+                <Outlet />
             </div>
                 )}
         </div> 

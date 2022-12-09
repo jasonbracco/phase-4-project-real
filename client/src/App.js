@@ -6,6 +6,7 @@ import NavBar from "./NavBar"
 import Cities from "./Pages/Cities"
 import UserProfile from "./Pages/UserProfile"
 import CreateNew from "./Pages/CreateNew"
+import City from './City'
 
 function App() {
 
@@ -57,12 +58,9 @@ function App() {
             <Homepage />
           }
         />
-        <Route
-          path="/restaurants/*"
-          element={
-            <Cities cities={cities} reviews={reviews} />
-          }
-        />
+        <Route path="/restaurants/*" element={<Cities cities={cities} />} >
+            <Route path=":id" element={<City cities={cities}/>} />
+        </Route>
         <Route
           path="/profile"
           element={
