@@ -7,30 +7,26 @@ function Cities({cities}){
 
     return(
         <div className="city-container">
-            <p>Select a City to see the Restaurants that have been reviewed:</p>
             <div className="cities">
                 {citySelected ? (
-                <div>
-                {cities.map((city) => 
-                    <Link
-                    key={city.id}
-                    to={`${city.id}`}
-                    onClick={() => setCitySelected((citySelected) => !citySelected)}
-                    >
-                    {city.name}
-                    <br></br>
-                    </Link>
-                )}
-             </div>
+                    <div>
+                        <p>Select a City to see the Restaurants that have been reviewed:</p>
+                        {cities.map((city) => 
+                            <Link key={city.id} to={`${city.id}`} onClick={() => setCitySelected((citySelected) => !citySelected)}>
+                                {city.name}
+                                <br></br>
+                            </Link>
+                        )}
+                    </div>
                 ) : (
-            <div>
-                <button onClick={() => setCitySelected((citySelected) => !citySelected)}>
-                    <Link to="/cities">Back to Cities</Link>
-                </button> 
-                <Outlet />
-            </div>
+                    <div>
+                        <button onClick={() => setCitySelected((citySelected) => !citySelected)}>
+                            <Link to="/cities">Back to Cities</Link>
+                        </button> 
+                        <Outlet />
+                    </div>
                 )}
-        </div> 
+            </div> 
         </div>
     )
 }

@@ -6,8 +6,11 @@ function Restaurant({restaurant}){
 
 
     return(
-        <div>
-            {restaurant.name}
+        <div className="individual-restaurant">
+            <p>ID: {restaurant.id}</p>
+            <p>{restaurant.name}</p>
+            <p>Cuisine: {restaurant.cuisine}</p>
+            <p>Number of Seats: {restaurant.seats}</p>
         </div>
     )
 }

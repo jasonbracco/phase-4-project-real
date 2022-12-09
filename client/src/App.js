@@ -55,7 +55,6 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/cities/*" element={<Cities cities={cities} />}>
             <Route path=":id" element={<City cities={cities}/>} />
-              {/* <Route path="/restaurants" element={<Restaurant restaurant={restaurant} />} /> */}
         </Route>
         <Route path ="/profile" element={<UserProfile user={user} />} />
         <Route path="createnew" element={<CreateNew user={user} cities={cities} onAddCity={handleAddCity} onAddReview={handleAddReview}/>} />
