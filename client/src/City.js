@@ -10,7 +10,7 @@ function City({cities}) {
     const array = cities.find(city => city.id == id)
 
     return(
-        <div className = "restaurant-list">
+        <div>
             {array.restaurants.map((restaurant) => {
                 return <Restaurant key={restaurant.id} restaurant={restaurant}/>
             })}
@@ -18,4 +18,4 @@ function City({cities}) {
     )
 }
 
-export default City 
+export default City  

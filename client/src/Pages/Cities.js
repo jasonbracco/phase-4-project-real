@@ -6,14 +6,13 @@ function Cities({cities}){
     const [citySelected, setCitySelected] = useState(true)
 
     return(
-        <div className="city-container">
-            <div className="cities">
+            <div>
                 {citySelected ? (
                     <div>
                         <p>Select a City to see the Restaurants that have been reviewed:</p>
                         {cities.map((city) => 
                             <Link key={city.id} to={`${city.id}`} onClick={() => setCitySelected((citySelected) => !citySelected)}>
-                                {city.name}
+                                <button className="city-button">{city.name}</button>
                                 <br></br>
                             </Link>
                         )}
@@ -23,11 +22,12 @@ function Cities({cities}){
                         <button onClick={() => setCitySelected((citySelected) => !citySelected)}>
                             <Link to="/cities">Back to Cities</Link>
                         </button> 
-                        <Outlet />
+                        <div className="restaurant-review-container">
+                            <Outlet />
+                        </div>
                     </div>
                 )}
             </div> 
-        </div>
     )
 }
 

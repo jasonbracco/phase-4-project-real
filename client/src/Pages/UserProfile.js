@@ -6,8 +6,6 @@ import Review from "../Review"
 
 function UserProfile({user, reviews}){
 
-    console.log(user.reviews)
-
     return(
         <div>
             <div className="user-info">
@@ -27,7 +25,7 @@ function UserProfile({user, reviews}){
             </div>
             <div className="user-reviews">
                 {user.reviews.map((review) => {
-                    return <Review review={review} />
+                    return <Review key={review.id}review={review} />
                 })}
             </div>
         </div>

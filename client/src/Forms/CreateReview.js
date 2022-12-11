@@ -7,10 +7,7 @@ function CreateReview({onAddReview, restaurants, user}){
 
     const [content, setContent] = useState("")
     const [restaurantID, setRestaurantID] = useState()
-    const [errors, setErrors] = useState([])
-
-    console.log(restaurants)
-    
+    const [errors, setErrors] = useState([])    
 
     function handleReviewSubmit(e){
         e.preventDefault()

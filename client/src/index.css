@@ -29,15 +29,51 @@
   border-collapse: collapse;
 }
 
-.city-container {
-  width: 45%;
-  height: 100%;
-  float: left;
-}
-
 .each-city {
   padding: 5px
 }
+
+.city-button {
+  font-size: 24px;
+  background-color: white;
+  padding: 5px;
+  border-radius: 12px;
+  border: 2px solid blue;
+  transition-duration: 0.4s;
+}
+  .city-button:hover {
+  background-color: rgb(58, 58, 191); 
+  }
+
+.restaurant-card {
+  width: 100%;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  width: 200px;
+}
+
+.review {
+  float: right;
+  width: 55%;
+  height: 100%;
+}
+
+.restaurant-card-content {
+  text-align: center;
+  line-height: 5px;
+  font-size: .8em;
+  padding: 2px;
+  background: #fafafa;
+}
+
+.see-review-button {
+  font-size: 10px;
+  background-color: #fafafa;
+  border: 1px solid black;
+  transition-duration: 0.4s;
+}
+  .see-review-button:hover {
+    background-color: white;
+  }
 
 
 

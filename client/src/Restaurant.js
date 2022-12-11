@@ -1,39 +1,32 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { Route, Routes, Link } from "react-router-dom";
 import Reviews from "./Pages/Reviews"
+import "./index.css"
+
 
 
 function Restaurant({restaurant}){
 
-    const [restaurantSelected, setRestaurantSelected] = useState(true)
-
     return(
-        <div className="individual-restaurant">
-            {restaurantSelected ? (
-                <div>
-                    <p>ID: {restaurant.id}</p>
-                    <p>{restaurant.name}</p>
-                    <p>Cuisine: {restaurant.cuisine}</p>
-                    <p>Number of Seats: {restaurant.seats}</p>
-                    <button onClick={() => setRestaurantSelected((restaurantSelected) => !restaurantSelected)}>
-                        <Link to={`reviews/${restaurant.id}`}>See Reviews!</Link>
-                    </button>
-                </div>
-            ) : (
-                    <div className="review-container">
-                        <p>ID: {restaurant.id}</p>
-                        <p>{restaurant.name}</p>
-                        <p>Cuisine: {restaurant.cuisine}</p>
-                        <p>Number of Seats: {restaurant.seats}</p>
-                        <button onClick={() => setRestaurantSelected((restaurantSelected) => !restaurantSelected)}>
-                        <Link to={`reviews`}>Hide Reviews</Link>
+
+            <div className="restaurant-review-containter">
+                <div className="restaurant-card">
+                    <div className="restaurant-card-content">
+                        <h4 className="restaurant-name">{restaurant.name}</h4>
+                        <p className="restaurant-cuisine">Cuisine: {restaurant.cuisine}</p>
+                        <p className="number-of-seats">Number of Seats: {restaurant.seats}</p>
+                        <button className="see-review-button">
+                            <Link to={`reviews/${restaurant.id}`}>See Reviews!</Link>
                         </button>
-                            <Routes>
-                                <Route path="reviews/:id" element={<Reviews reviews={restaurant.reviews} />}></Route>
-                            </Routes>
                     </div>
-            )}
-        </div>
+                </div>
+                <div className="reviews">
+                    <Routes>
+                        <Route path="reviews/:id" element={<Reviews reviews={restaurant.reviews} />}></Route>
+                    </Routes>
+                </div>
+            </div>                   
+
     )
 }
 
