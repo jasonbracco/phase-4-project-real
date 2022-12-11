@@ -11,6 +11,10 @@ class ReviewsController < ApplicationController
         render json: review, status: :created
     end
 
+    def index
+        review=Review.find_by(params[:id])
+        render json: review
+
     private
 
     def review_params

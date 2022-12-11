@@ -8,6 +8,8 @@ import UserProfile from "./Pages/UserProfile"
 import CreateNew from "./Pages/CreateNew"
 import City from './City'
 
+//NEED TO UPDATE REVIEWS AND RESTAURANTS STATE ONCE THEY ARE ADDED IN CREATE COMPONENT
+
 function App() {
 
   const [user, setUser] = useState(null)
@@ -58,7 +60,6 @@ function App() {
 
   if (!user) return <LoginPage setUser={setUser}/> 
 
-  console.log(restaurants)
   return (
     <div>
       <NavBar setUser={setUser}/>
