@@ -1,10 +1,14 @@
-import React from "react"
+import React, {useState} from "react"
 import UserRestaurants from "../UserRestaurants"
-import UserReviews from "../Review"
+import UserReviews from "../UserReviews"
 
 
 
 function UserProfile({user, reviews}){
+
+    console.log(user.reviews)
+
+    const [userReviews, setUserReviews] = useState([user.reviews])
 
     return(
         <div>
