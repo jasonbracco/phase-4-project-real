@@ -1,6 +1,6 @@
 import React from "react"
 import UserRestaurants from "../UserRestaurants"
-import Review from "../Review"
+import UserReviews from "../Review"
 
 
 
@@ -23,9 +23,10 @@ function UserProfile({user, reviews}){
                         return <UserRestaurants key={review.id} review={review} />
                     })}
             </div>
+            My Reviews:
             <div className="user-reviews">
                 {user.reviews.map((review) => {
-                    return <Review key={review.id}review={review} />
+                    return <UserReviews key={review.id}review={review} />
                 })}
             </div>
         </div>
