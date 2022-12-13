@@ -35,7 +35,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    fetch("/allreviews")
+    fetch("/reviews")
     .then(response => response.json())
     .then(review => setReviews(review))
   }, [])
@@ -65,8 +65,8 @@ function App() {
       <NavBar setUser={setUser}/>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/cities/*" element={<Cities cities={cities} />}>
-            <Route path=":id/*" element={<City cities={cities}/>} />
+        <Route path="/cities/*" element={<Cities cities={cities} user={user}/>}>
+            <Route path=":id/*" element={<City cities={cities} user={user}/>}/>
         </Route>
         <Route path ="/profile" element={<UserProfile user={user}/>} />
         <Route path="/createnew" element={<CreateNew user={user} cities={cities} onAddCity={handleAddCity} onAddReview={handleAddReview} onAddRestaurant={handleAddRestaurant} restaurants={restaurants} />} />

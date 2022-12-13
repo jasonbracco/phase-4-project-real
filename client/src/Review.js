@@ -1,11 +1,16 @@
 import React from 'react'
 
-function Review({review}){
 
+function Review({review, user}){
+    
     return(
-        <div className="individual-review"> 
-            <p className="review-restaurant-name">{review.restaurant.name}</p>
-            <p className="review-content">{review.content}</p>
+        <div>
+        <div className="review-card"> 
+            <div className="review-card-content">
+                <p className="review-restaurant-name">{review.restaurant.name}</p>
+                <p className="review-content">{review.content}</p>
+            </div>
+        </div>
         </div>
     )
 }

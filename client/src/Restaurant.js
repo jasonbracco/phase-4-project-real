@@ -1,32 +1,34 @@
 import React from 'react'
-import { Route, Routes, Link } from "react-router-dom";
-import Reviews from "./Pages/Reviews"
+import Review from "./Review"
 import "./index.css"
 
 
 
-function Restaurant({restaurant}){
+function Restaurant({restaurant, user}){
 
     return(
-
-            <div className="restaurant-review-containter">
-                <div className="restaurant-card">
-                    <div className="restaurant-card-content">
-                        <h4 className="restaurant-name">{restaurant.name}</h4>
-                        <p className="restaurant-cuisine">Cuisine: {restaurant.cuisine}</p>
-                        <p className="number-of-seats">Number of Seats: {restaurant.seats}</p>
-                        <button className="see-review-button">
-                            <Link to={`reviews/${restaurant.id}`}>See Reviews!</Link>
-                        </button>
+                <div className="restaurant-list">
+                    <div className="restaurant-card">
+                        <div className="restaurant-card-content">
+                            <h3>{restaurant.name} - Cuisine: {restaurant.cuisine} - Seats: {restaurant.seats}</h3>
+                        </div>
+                        <p>Reviews:</p>
+                        <div className="review-list">
+                            {restaurant.reviews.map((review) => {
+                                return <Review key={review.id} review={review} user={user}/>
+                            })}
+                        </div>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
                     </div>
                 </div>
-                <div className="reviews">
-                    <Routes>
-                        <Route path="reviews/:id" element={<Reviews reviews={restaurant.reviews} />}></Route>
-                    </Routes>
-                </div>
-            </div>                   
-
     )
 }
 

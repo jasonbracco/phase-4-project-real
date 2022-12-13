@@ -4,15 +4,15 @@ import Restaurant from './Restaurant'
 import './index.css'
 
 
-function City({cities}) {
+function City({cities, user}) {
     const {id} = useParams()
 
     const array = cities.find(city => city.id == id)
 
     return(
-        <div>
+        <div className="restaurant-review-containter">
             {array.restaurants.map((restaurant) => {
-                return <Restaurant key={restaurant.id} restaurant={restaurant}/>
+                return <Restaurant key={restaurant.id} user={user} restaurant={restaurant}/>
             })}
         </div>
     )

@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   resources :restaurants, only: [:create, :show, :index]
   resources :cities, only: [:create, :show]
-  resources :reviews, only: [:create, :index]
+  resources :reviews, only: [:create, :index, :show]
   # get "/allrestaurants", to: "restaurants#index"
-  get "/allreviews", to: "reviews#index"
+  # get "/allreviews", to: "reviews#index"
   get "/allcities", to: "cities#index"
   post "/login", to: "sessions#create"
   post "/signup", to: "users#create"
