@@ -16,6 +16,12 @@ class ReviewsController < ApplicationController
         render json: review
     end
 
+    def update
+        review=Review.find(params[:id])
+        review.update!(review_params)
+        render json: review
+    end
+
     private
 
     def review_params

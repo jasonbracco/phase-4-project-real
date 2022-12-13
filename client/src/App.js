@@ -16,10 +16,6 @@ function App() {
   const [cities, setCities] = useState([])
   const [reviews, setReviews] = useState([])
   const [restaurants, setRestaurants] = useState([])
-  console.log(cities)
-  console.log(restaurants)
-  console.log(reviews)
-  console.log(user)
 
   //auto login if user matches
   useEffect(() => {
@@ -62,6 +58,17 @@ function App() {
     setReviews([...reviews, newReview])
   }
 
+  function handleUpdateReviews(updatedReview) {
+    const updatedReviews = reviews.map((review) => {
+      if (review.id === updatedReview.id) {
+        return updatedReview;
+      } else {
+        return review;
+      }
+    });
+    setReviews(updatedReviews);
+  }
+
   if (!user) return <LoginPage setUser={setUser}/> 
 
   return (
@@ -72,7 +79,7 @@ function App() {
         <Route path="/cities/*" element={<Cities cities={cities} user={user}/>}>
             <Route path=":id/*" element={<City cities={cities} user={user}/>}/>
         </Route>
-        <Route path ="/profile" element={<UserProfile user={user}/>} />
+        <Route path ="/profile" element={<UserProfile user={user} userReviewUpdate={handleUpdateReviews}/>} />
         <Route path="/createnew" element={<CreateNew user={user} cities={cities} onAddCity={handleAddCity} onAddReview={handleAddReview} onAddRestaurant={handleAddRestaurant} restaurants={restaurants} />} />
       </Routes>
     </div> 

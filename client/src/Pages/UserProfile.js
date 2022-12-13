@@ -4,10 +4,8 @@ import UserReviews from "../UserReviews"
 
 
 
-function UserProfile({user, reviews}){
-
-    console.log(user.reviews)
-
+function UserProfile({user, reviews, userReviewUpdate}){
+    
     const [userReviews, setUserReviews] = useState([user.reviews])
 
     return(
@@ -30,7 +28,7 @@ function UserProfile({user, reviews}){
             My Reviews:
             <div className="user-reviews">
                 {user.reviews.map((review) => {
-                    return <UserReviews key={review.id}review={review} />
+                    return <UserReviews key={review.id} review={review} userReviewUpdate={userReviewUpdate} />
                 })}
             </div>
         </div>
