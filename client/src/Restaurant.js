@@ -3,8 +3,10 @@ import Review from "./Review"
 import "./index.css"
 
 
+ 
+function Restaurant({restaurant, reviews}){
 
-function Restaurant({restaurant}){
+    const reviewArray=reviews.filter((review) => review.restaurant_id == restaurant.id)
 
     return(
                 <div className="restaurant-list">
@@ -14,7 +16,7 @@ function Restaurant({restaurant}){
                         </div>
                         <p>Reviews:</p>
                         <div className="review-list">
-                            {restaurant.reviews.map((review) => {
+                            {reviewArray.map((review) => {
                                 return <Review key={review.id} review={review}/>
                             })}
                         </div>

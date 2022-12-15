@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Error from "../Error"
-import "../index.css"
+import "../index.css" 
 
 
 function CreateRestaurant({cities, onAddRestaurant}){

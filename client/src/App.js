@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import { Route, Routes } from "react-router-dom";
+import {useState, useEffect} from "react"
+import { Route, Routes } from "react-router-dom"
 import Homepage from "./Pages/Homepage"
 import LoginPage from "./Pages/LoginPage"
 import NavBar from "./NavBar"
@@ -20,7 +20,7 @@ function App() {
   const [restaurants, setRestaurants] = useState([])
   const [userReviews, setUserReviews] = useState([])
 
-console.log(cities)
+
 
   //auto login if user matches
   useEffect(() => {
@@ -28,7 +28,9 @@ console.log(cities)
       if (response.ok) {
         response.json().then((user) => {
           setUser(user)
-          setUserReviews(user.reviews)})
+          setUserReviews(user.reviews)
+
+        })
         }
     });
   }, []);
@@ -37,28 +39,42 @@ console.log(cities)
     fetch("/allcities")
     .then(response => response.json())
     .then(city => {
-      setCities(city)
+      setAllThings(city)
     })
-  }, [])
+  }, [userReviews])
 
-  useEffect(() => {
-    fetch("/reviews")
-    .then(response => response.json())
-    .then(review => setReviews(review))
-  },[userReviews])
-
-  useEffect(() => {
-    fetch("/restaurants")
-    .then(response => response.json())
-    .then(restaurant => setRestaurants(restaurant))
-  }, [])
-
-  function handleAddRestaurant(newRestaurant){
-    setRestaurants([...restaurants, newRestaurant])
+  function setAllThings(city){
+      setCities(city)
+      const array1 = city.map((singleCity) => {
+        return singleCity.restaurants
+      })
+      const someRestaurants = array1.flat()
+      setRestaurants(someRestaurants)
+      const array2 = someRestaurants.map((singleRestaurant)=> {
+        return singleRestaurant.reviews
+      })
+      const someReviews=array2.flat()
+      setReviews(someReviews)
   }
+
+  // useEffect(() => {
+  //   fetch("/reviews")
+  //   .then(response => response.json())
+  //   .then(review => setReviews(review))
+  // },[])
+
+  // useEffect(() => {
+  //   fetch("/restaurants")
+  //   .then(response => response.json())
+  //   .then(restaurant => setRestaurants(restaurant))
+  // }, [])
 
   function handleAddCity(newCity){
     setCities([...cities, newCity])
+  }
+
+  function handleAddRestaurant(newRestaurant){
+    setRestaurants([...restaurants, newRestaurant])
   }
 
   function handleAddReview(newReview){
@@ -84,8 +100,8 @@ console.log(cities)
       <NavBar setUser={setUser}/>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/cities/*" element={<Cities cities={cities}/>}>
-            <Route path=":id/*" element={<City cities={cities}/>}/>
+        <Route path="/cities/*" element={<Cities cities={cities} restaurants={restaurants} reviews={reviews}/>}>
+            <Route path=":id/*" element={<City cities={cities} restaurants={restaurants} reviews={reviews}/>}/>
         </Route>
         <Route path ="/profile" element={<UserProfile user={user} userReviews={userReviews} userReviewUpdate={handleUpdateReviews}/>} />
         <Route path="/createnew" element={<CreateNew user={user} cities={cities} onAddCity={handleAddCity} onAddReview={handleAddReview} onAddRestaurant={handleAddRestaurant} restaurants={restaurants} />} />
