@@ -4,9 +4,7 @@ import UserReviews from "../UserReviews"
 
 
 
-function UserProfile({user, reviews, userReviewUpdate}){
-    
-    const [userReviews, setUserReviews] = useState([user.reviews])
+function UserProfile({user, userReviews, userReviewUpdate}){
 
     return(
         <div>
@@ -21,13 +19,13 @@ function UserProfile({user, reviews, userReviewUpdate}){
             </div>
             <div className="user-restaurants">
                 <h3>Restaurants I have visited:</h3>
-                    {user.reviews.map((review) => {
+                    {userReviews.map((review) => {
                         return <UserRestaurants key={review.id} review={review} />
                     })}
             </div>
             My Reviews:
             <div className="user-reviews">
-                {user.reviews.map((review) => {
+                {userReviews.map((review) => {
                     return <UserReviews key={review.id} review={review} userReviewUpdate={userReviewUpdate} />
                 })}
             </div>

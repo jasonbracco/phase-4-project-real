@@ -9,6 +9,8 @@ import CreateNew from "./Pages/CreateNew"
 import City from './City'
 
 //NEED TO UPDATE REVIEWS AND RESTAURANTS STATE ONCE THEY ARE ADDED IN CREATE COMPONENT
+//use one fetch request to get all necessary data, then set it to state
+//fetch cities, 
 
 function App() {
 
@@ -16,13 +18,18 @@ function App() {
   const [cities, setCities] = useState([])
   const [reviews, setReviews] = useState([])
   const [restaurants, setRestaurants] = useState([])
+  const [userReviews, setUserReviews] = useState([])
+
+console.log(cities)
 
   //auto login if user matches
   useEffect(() => {
     fetch ("/me").then((response) => {
       if (response.ok) {
-        response.json().then((user) => setUser(user));
-      }
+        response.json().then((user) => {
+          setUser(user)
+          setUserReviews(user.reviews)})
+        }
     });
   }, []);
 
@@ -38,7 +45,7 @@ function App() {
     fetch("/reviews")
     .then(response => response.json())
     .then(review => setReviews(review))
-  }, [])
+  },[userReviews])
 
   useEffect(() => {
     fetch("/restaurants")
@@ -66,7 +73,8 @@ function App() {
         return review;
       }
     });
-    setReviews(updatedReviews);
+    setReviews(updatedReviews)
+    setUserReviews(updatedReviews);
   }
 
   if (!user) return <LoginPage setUser={setUser}/> 
@@ -76,10 +84,10 @@ function App() {
       <NavBar setUser={setUser}/>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/cities/*" element={<Cities cities={cities} user={user}/>}>
-            <Route path=":id/*" element={<City cities={cities} user={user}/>}/>
+        <Route path="/cities/*" element={<Cities cities={cities}/>}>
+            <Route path=":id/*" element={<City cities={cities}/>}/>
         </Route>
-        <Route path ="/profile" element={<UserProfile user={user} userReviewUpdate={handleUpdateReviews}/>} />
+        <Route path ="/profile" element={<UserProfile user={user} userReviews={userReviews} userReviewUpdate={handleUpdateReviews}/>} />
         <Route path="/createnew" element={<CreateNew user={user} cities={cities} onAddCity={handleAddCity} onAddReview={handleAddReview} onAddRestaurant={handleAddRestaurant} restaurants={restaurants} />} />
       </Routes>
     </div> 

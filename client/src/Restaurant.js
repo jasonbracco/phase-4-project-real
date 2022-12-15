@@ -4,7 +4,7 @@ import "./index.css"
 
 
 
-function Restaurant({restaurant, user}){
+function Restaurant({restaurant}){
 
     return(
                 <div className="restaurant-list">
@@ -15,7 +15,7 @@ function Restaurant({restaurant, user}){
                         <p>Reviews:</p>
                         <div className="review-list">
                             {restaurant.reviews.map((review) => {
-                                return <Review key={review.id} review={review} user={user}/>
+                                return <Review key={review.id} review={review}/>
                             })}
                         </div>
                         <br></br>

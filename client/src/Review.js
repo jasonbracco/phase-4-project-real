@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function Review({review, user}){
+function Review({review}){
     
     return(
         <div>
