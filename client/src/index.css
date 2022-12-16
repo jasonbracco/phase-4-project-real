@@ -30,19 +30,19 @@
 }
 
 .each-city {
-  padding: 5px
+  padding: 5px;
 }
 
 .city-button {
-  font-size: 24px;
   background-color: white;
-  padding: 5px;
+  font-size: 22px;
+  padding: 10px;
   border-radius: 12px;
-  border: 2px solid blue;
+  border: 2px solid gray;
   transition-duration: 0.4s;
 }
   .city-button:hover {
-  background-color: rgb(58, 58, 191); 
+  background-color: rgb(184, 184, 184) 
   }
 
 .restaurant-review-containter {
@@ -85,7 +85,7 @@
   text-align: center;
   line-height: 5px;
   font-size: .8em;
-  padding: 2px;
+  padding: 8px;
   background: #fafafa;
 }
 
@@ -104,12 +104,20 @@
   transition-duration: 0.4s;
 }
   .user-restaurant-card:hover {
-  background-color: ghostwhite
+  background-color: gray
   }
 
   .user-reviews {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  .city-container {
+    padding: 60px;
+    display: grid;
+    
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
   }
 
 

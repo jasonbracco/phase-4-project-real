@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react" 
 import UserRestaurants from "../UserRestaurants"
 import UserReviews from "../UserReviews"
 
@@ -6,10 +6,14 @@ import UserReviews from "../UserReviews"
 
 function UserProfile({user, userReviews, userReviewUpdate}){
 
+    console.log(user.image_url)
+
     return(
         <div>
+            <div className="profile-picture">
+                <img src={`${user.image_url}`} alt="Profile Pic"/>
+            </div>
             <div className="user-info">
-                My info:
                 <br></br>
                 <br></br>
                 {user.name}

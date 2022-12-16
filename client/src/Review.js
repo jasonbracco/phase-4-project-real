@@ -7,7 +7,11 @@ function Review({review}){
         <div>
         <div className="review-card"> 
             <div className="review-card-content">
-                <p className="review-restaurant-name">{review.restaurant.name}</p>
+                <b className="review-restaurant-name">{review.restaurant.name}</b>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
                 <p className="review-content">{review.content}</p>
             </div>
         </div>
