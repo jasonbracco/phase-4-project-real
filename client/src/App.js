@@ -8,10 +8,6 @@ import UserProfile from "./Pages/UserProfile"
 import CreateNew from "./Pages/CreateNew"
 import City from './City'
 
-//NEED TO UPDATE REVIEWS AND RESTAURANTS STATE ONCE THEY ARE ADDED IN CREATE COMPONENT
-//use one fetch request to get all necessary data, then set it to state
-//fetch cities, 
-
 function App() {
 
   const [user, setUser] = useState(null)
@@ -56,18 +52,6 @@ function App() {
       const someReviews=array2.flat()
       setReviews(someReviews)
   }
-
-  // useEffect(() => {
-  //   fetch("/reviews")
-  //   .then(response => response.json())
-  //   .then(review => setReviews(review))
-  // },[])
-
-  // useEffect(() => {
-  //   fetch("/restaurants")
-  //   .then(response => response.json())
-  //   .then(restaurant => setRestaurants(restaurant))
-  // }, [])
 
   function handleAddCity(newCity){
     setCities([...cities, newCity])

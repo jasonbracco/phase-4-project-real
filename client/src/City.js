@@ -4,14 +4,14 @@ import Restaurant from './Restaurant'
 import './index.css' 
  
 
-function City({cities, restaurants, reviews}) {
+function City({restaurants, reviews}) {
     const {id} = useParams()
 
-    const array = restaurants.filter(restaurant => restaurant.city_id == id)
+    const restaurantArray = restaurants.filter(restaurant => restaurant.city_id == id)
 
     return(
         <div className="restaurant-review-containter">
-            {array.map((restaurant) => {
+            {restaurantArray.map((restaurant) => {
                 return <Restaurant key={restaurant.id} restaurant={restaurant} reviews={reviews}/>
             })}
         </div>
