@@ -1,18 +1,23 @@
-import React from 'react'
+import React from "react"
+
+
 
 
 function Review({review}){
+
+    console.log(review.user_id)
     
-    return(
+    return( 
         <div>
         <div className="review-card"> 
             <div className="review-card-content">
-                <b className="review-restaurant-name">{review.restaurant.name}</b>
+                <b>User {review.user_id} says:</b>
                 <br></br>
                 <br></br>
                 <br></br>
-                <br></br>
-                <p className="review-content">{review.content}</p>
+                <p>
+                <em className="review-content">{review.content}</em>
+                </p>
             </div>
         </div>
         </div>

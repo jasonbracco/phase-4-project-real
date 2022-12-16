@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams} from "react-router-dom";
 import Restaurant from './Restaurant'
-import './index.css' 
+import './index.css'  
  
 
 function City({restaurants, reviews}) {

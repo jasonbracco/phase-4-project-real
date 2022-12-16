@@ -62,6 +62,9 @@
   height: 100%;
   float: left;
   border-collapse: collapse;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
 }
  
 .restaurant-card {
@@ -70,8 +73,10 @@
 }
 
 .review-card {
-  width: 100%;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 1px oldlace(0, 0, 0, 0.1);
+  border: 2px solid rgb(174, 174, 174);
+  background: oldlace;
+
 }
 
 .restaurant-card-content {
@@ -79,14 +84,14 @@
   line-height: 5px;
   font-size: .8em;
   padding: 2px;
-  background: #fafafa;
+  background: oldlace;
 }
 .review-card-content {
   text-align: center;
   line-height: 5px;
   font-size: .8em;
   padding: 8px;
-  background: #fafafa;
+  background: oldlace;
 }
 
 .user-restaurant-container {
@@ -118,6 +123,14 @@
     
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
+  }
+
+  .back-button{
+    text-decoration: none;
+    font-size: 10px;
+    padding: 4px;
+    border-radius: 2px;
+    border: 2px solid gray;
   }
 
 
