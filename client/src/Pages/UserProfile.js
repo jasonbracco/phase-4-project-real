@@ -9,7 +9,10 @@ function UserProfile({user, userReviews, userReviewUpdate}){
     return(
         <div>
             <div className="user-info">
-                Name: {user.name}
+                My info:
+                <br></br>
+                <br></br>
+                {user.name}
                 <br></br>
                 <br></br>
                 Age: {user.age}
@@ -17,13 +20,13 @@ function UserProfile({user, userReviews, userReviewUpdate}){
                 <br></br>
                 Bio: {user.bio}
             </div>
-            <div className="user-restaurants">
-                <h3>Restaurants I have visited:</h3>
+            <h3>Restaurants I have visited:</h3>
+            <div className="user-restaurant-container">
                     {userReviews.map((review) => {
-                        return <UserRestaurants key={review.id} review={review} />
+                        return <UserRestaurants key={review.id} review={review} /> 
                     })}
             </div>
-            My Reviews:
+            <h3>My Reviews:</h3>
             <div className="user-reviews">
                 {userReviews.map((review) => {
                     return <UserReviews key={review.id} review={review} userReviewUpdate={userReviewUpdate} />

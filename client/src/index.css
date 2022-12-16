@@ -89,6 +89,31 @@
   background: #fafafa;
 }
 
+.user-restaurant-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.user-restaurant-card {
+  font-size: 16px;
+  text-align: center;
+  background-color: white;
+  padding: 5px;
+  border-radius: 12px;
+  border: 2px solid gray;
+  transition-duration: 0.4s;
+}
+  .user-restaurant-card:hover {
+  background-color: ghostwhite
+  }
+
+  .user-reviews {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+
 
 
 
