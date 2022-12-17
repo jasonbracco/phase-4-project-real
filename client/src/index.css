@@ -94,11 +94,6 @@
   background: oldlace;
 }
 
-.user-restaurant-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-
 .user-restaurant-card {
   font-size: 16px;
   text-align: center;
@@ -110,11 +105,6 @@
 }
   .user-restaurant-card:hover {
   background-color: gray
-  }
-
-  .user-reviews {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
   }
 
   .city-container {
@@ -158,6 +148,45 @@
     .nav-link:hover {
     background-color: rgb(184, 184, 184) 
     }
+
+  .homepage{
+    text-align: center;
+  }
+
+  .profile-container{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  .picture-container{
+    float: left
+  }
+
+  .profile-picture{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    padding: 5px
+  }
+
+  .user-info{
+    height: 60%
+  }
+
+  .restaurants-i-have-visited{
+    text-align: left;
+  }
+
+  .user-restaurant-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .user-reviews {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 
 
 

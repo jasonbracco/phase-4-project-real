@@ -88,7 +88,7 @@ function SignupForm({setUser}){
                 onChange={(e) => setAge(e.target.value)}
             />
             <h3>Tell Us About Yourself:</h3>
-            <input
+            <textarea
                 type="test"
                 name="bio"
                 value={bio}
@@ -102,7 +102,7 @@ function SignupForm({setUser}){
                 name="pictue"
                 value={imageURL}
                 autoComplete="off"
-                placeholder="Profile Picture"
+                placeholder="Link here"
                 onChange={(e) => setImageURL(e.target.value)}
             />
             <br></br>

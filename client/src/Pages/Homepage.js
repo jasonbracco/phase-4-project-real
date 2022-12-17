@@ -3,14 +3,20 @@ import React from "react"
 function Homepage(){
 
     return(
-        <div>
+        <div className="homepage">
+            <br></br>
+            <br></br>
+            <br></br>
             Welcome to the best restaurant review service you have never heard of!
             <br></br>
             <br></br>
-            Discover new restaurants, see how other certified reviewrs enojyed their experiences, and build your global palate!
+            Discover new restaurants, see how other certified reviewers enojoyed their experiences, and build your global palate!
             <br></br>
             <br></br>
-            If you do not see any restaurants you have been to, and would like to add one, use the "Create Restaurant" option!
+            Use the "Create" page to add any City or Restaurant that has not been reviewed
+            <br></br>
+            <br></br>
+            Visit your Profile Page to see the restaurants you have been, and see all of your personal reviews
         </div>
     )
 }

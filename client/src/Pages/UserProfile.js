@@ -2,16 +2,12 @@ import React from "react"
 import UserRestaurants from "../UserRestaurants"
 import UserReviews from "../UserReviews"
 
-
-
 function UserProfile({user, userReviews, userReviewUpdate}){
 
-    console.log(user.image_url)
-
     return(
-        <div>
-            <div className="profile-picture">
-                <img src={`${user.image_url}`} alt="Profile Pic"/>
+        <div className="profile-container">
+            <div className="picture-container">
+                <img className="profile-picture" src={`${user.image_url}`} alt="Profile Pic"/>
             </div>
             <div className="user-info">
                 <br></br>
@@ -24,7 +20,11 @@ function UserProfile({user, userReviews, userReviewUpdate}){
                 <br></br>
                 Bio: {user.bio}
             </div>
-            <h3>Restaurants I have visited:</h3>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <h3 className="restaurants-i-have-visited">Restaurants I have visited:</h3>
             <div className="user-restaurant-container">
                     {userReviews.map((review) => {
                         return <UserRestaurants key={review.id} review={review} /> 
