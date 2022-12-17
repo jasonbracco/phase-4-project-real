@@ -138,6 +138,27 @@
     text-align: center;
   }
 
+  .error-messages{
+    font-size: 16px;
+    color: red;
+    text-decoration-style: wavy;
+  }
+
+  .nav-link{
+    display: inline-block;
+    text-decoration: none;
+    width: 200px;
+    padding: 15px;
+    margin: 0 6px 6px;
+    background:gray;
+    color: white;
+    text-align: center;
+    transition-duration: 0.4s;
+  }
+    .nav-link:hover {
+    background-color: rgb(184, 184, 184) 
+    }
+
 
 
 
