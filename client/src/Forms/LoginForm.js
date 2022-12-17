@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Error from "../Error"
+import Error from "../Error" 
 
 
 function LoginForm({setUser}){

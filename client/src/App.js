@@ -16,8 +16,6 @@ function App() {
   const [restaurants, setRestaurants] = useState([])
   const [userReviews, setUserReviews] = useState([])
 
-
-
   //auto login if user matches
   useEffect(() => {
     fetch ("/me").then((response) => {
@@ -25,33 +23,33 @@ function App() {
         response.json().then((user) => {
           setUser(user)
           setUserReviews(user.reviews)
-
         })
         }
     });
   }, []);
 
   useEffect(() => {
-    fetch("/allcities")
-    .then(response => response.json())
-    .then(city => {
-      setAllThings(city)
+    fetch("/cities")
+    .then((response) => {
+      if (response.ok){
+        response.json().then(city => {
+          setCities(city)
+          const array1 = city.map((singleCity) => {
+            return singleCity.restaurants
+          })
+          const someRestaurants = array1.flat()
+          setRestaurants(someRestaurants)
+          const array2 = someRestaurants.map((singleRestaurant)=> {
+            return singleRestaurant.reviews
+          })
+          const someReviews=array2.flat()
+          setReviews(someReviews)
+        })
+      }
     })
-  }, [userReviews])
+  }, [user, userReviews])
 
-  function setAllThings(city){
-      setCities(city)
-      const array1 = city.map((singleCity) => {
-        return singleCity.restaurants
-      })
-      const someRestaurants = array1.flat()
-      setRestaurants(someRestaurants)
-      const array2 = someRestaurants.map((singleRestaurant)=> {
-        return singleRestaurant.reviews
-      })
-      const someReviews=array2.flat()
-      setReviews(someReviews)
-  }
+  if(!user) return <LoginPage setUser={setUser}/> 
 
   function handleAddCity(newCity){
     setCities([...cities, newCity])
@@ -76,8 +74,6 @@ function App() {
     setReviews(updatedReviews)
     setUserReviews(updatedReviews);
   }
-
-  if (!user) return <LoginPage setUser={setUser}/> 
 
   return (
     <div>
