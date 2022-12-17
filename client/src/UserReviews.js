@@ -20,15 +20,9 @@ function UserReviews({review, user, userReviewUpdate}){
                             <b className="review-restaurant-name">Restaurant: <em>{review.restaurant.name}</em></b>
                             <br></br>
                             <br></br>
-                            <br></br>
-                            <br></br>
                             My Review:
                             <br></br>
-                            <br></br>
-                            <br></br>
-                            <br></br>
                             <em className="review-content">{review.content}</em>
-                            <br></br>
                             <br></br>
                             <br></br>
                             <button className="delete-review-button">Delete Review</button>

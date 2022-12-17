@@ -4,8 +4,6 @@ import React from "react"
 
 
 function Review({review}){
-
-    console.log(review.user_id)
     
     return( 
         <div>
