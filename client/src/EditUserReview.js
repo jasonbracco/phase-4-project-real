@@ -23,7 +23,7 @@ function EditUserReview({review, onUpdateReview}){
 
     return(
         <form onSubmit={handleEditReview}>
-            <input
+            <textarea
                 type="text"
                 name="Review"
                 value={contentChange}

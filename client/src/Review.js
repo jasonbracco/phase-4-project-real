@@ -13,8 +13,6 @@ function Review({review}){
             <div className="review-card-content">
                 <b>User {review.user_id} says:</b>
                 <br></br>
-                <br></br>
-                <br></br>
                 <p>
                 <em className="review-content">{review.content}</em>
                 </p>

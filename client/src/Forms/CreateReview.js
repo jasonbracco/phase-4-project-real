@@ -44,12 +44,12 @@ function CreateReview({onAddReview, restaurants, user}){
                     ))}
               </select>
                 <h3>Provide your review</h3>
-                <input
+                <textarea
                     type="text"
                     name="content"
                     value={content}
                     autoComplete="off"
-                    placeholder="Review Text"
+                    placeholder="Review Here"
                     onChange={(e) => setContent(e.target.value)}
                 />
                 <br></br>
