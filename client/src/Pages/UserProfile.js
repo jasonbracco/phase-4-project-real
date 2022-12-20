@@ -8,6 +8,11 @@ function UserProfile({user, userReviews, userReviewUpdate}){
         return review.restaurant.name
     })
 
+    //Try to see if i can do this in the back end on user response
+    //custom class method?
+    //request to user, 
+    //take both constants and make it a fetch request, replace userReviews
+    
     const uniqueRestaurantNames=restaurantNames.filter((value, index, self) => self.indexOf(value) === index)
 
     return(

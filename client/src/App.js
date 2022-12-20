@@ -16,7 +16,6 @@ function App() {
   const [restaurants, setRestaurants] = useState([])
   const [userReviews, setUserReviews] = useState([])
   const [citySelected, setCitySelected] = useState(true)
-  console.log(citySelected)
 
   useEffect(() => {
     fetch ("/me").then((response) => {
@@ -28,6 +27,7 @@ function App() {
         }
     });
   }, []);
+  //eliminate the setUserReviews state, just pass user as a prop and use user.reviews
  
   useEffect(() => {
     fetch("/cities")
@@ -35,16 +35,16 @@ function App() {
       if (response.ok){
         response.json().then(city => {
           setCities(city)
-          const array1 = city.map((singleCity) => {
+          const restaurantArray = city.map((singleCity) => {
             return singleCity.restaurants
           })
-          const someRestaurants = array1.flat()
-          setRestaurants(someRestaurants)
-          const array2 = someRestaurants.map((singleRestaurant)=> {
+          const allRestaurants = restaurantArray.flat()
+          setRestaurants(allRestaurants)
+          const reviewArray = allRestaurants.map((singleRestaurant)=> {
             return singleRestaurant.reviews
           })
-          const someReviews=array2.flat()
-          setReviews(someReviews)
+          const allReviews=reviewArray.flat()
+          setReviews(allReviews)
         })
       }
     })
@@ -95,8 +95,8 @@ function App() {
       <NavBar setUser={setUser} citySelected={citySelected} setCitySelected={setCitySelected}/>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route exact path="/cities" element={<Cities cities={cities} restaurants={restaurants} reviews={reviews} citySelected={citySelected} setCitySelected={setCitySelected}/>}>
-            <Route path=":id" element={<City cities={cities} restaurants={restaurants} reviews={reviews}/>}/>
+        <Route exact path="/cities" element={<Cities cities={cities} citySelected={citySelected} setCitySelected={setCitySelected}/>}>
+            <Route path=":id" element={<City cities={cities}/>}/>
         </Route>
         <Route path ="/profile" element={<UserProfile user={user} userReviews={userReviews} userReviewUpdate={handleUpdateReviews}/>} />
         <Route path="/createnew" element={<CreateNew user={user} cities={cities} onAddCity={handleAddCity} onAddReview={handleAddReview} onAddRestaurant={handleAddRestaurant} restaurants={restaurants} onAddUserReview={handleAddUserReview}/>} />

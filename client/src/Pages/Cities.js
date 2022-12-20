@@ -1,8 +1,7 @@
-import React, {useState} from 'react' 
+import React from 'react' 
 import { Link, Outlet} from "react-router-dom"; 
-
-function Cities({cities, restaurants, reviews, setCitySelected, citySelected}){
-    console.log(citySelected)
+ 
+function Cities({cities, setCitySelected, citySelected}){
 
     return(
             <div>
@@ -24,7 +23,7 @@ function Cities({cities, restaurants, reviews, setCitySelected, citySelected}){
                             <Link to="/cities">Back to Cities</Link>
                         </button> 
                         <div>
-                            <Outlet restaurants={restaurants} reviews={reviews}/>
+                            <Outlet/>
                         </div>
                     </div>
                 )}

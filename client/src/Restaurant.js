@@ -3,14 +3,12 @@ import Review from "./Review"
 import "./index.css"
  
 
-  
-function Restaurant({restaurant, reviews}){
-
-    const reviewArray=reviews.filter((review) => review.restaurant_id == restaurant.id)
+   
+function Restaurant({restaurant}){
 
     const howManyReviews = restaurant.reviews.length
 
-    return(
+    return( 
                 <div className="restaurant-list">
                     <div className="restaurant-card">
                         <div className="restaurant-card-content">
@@ -19,7 +17,7 @@ function Restaurant({restaurant, reviews}){
                         <p>Reviews:</p>
                         {howManyReviews>0 ? (
                         <div className="review-list">
-                                {reviewArray.map((review) => {  
+                                {restaurant.reviews.map((review) => {  
                                     return <Review key={review.id} review={review}/>
                                 })}
                         </div>

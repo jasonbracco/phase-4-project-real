@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import EditUserReview from './EditUserReview'
 
 
-function UserReviews({review, user, userReviewUpdate}){
+function UserReviews({review, userReviewUpdate}){
 
     const [isEditing, setIsEditing] = useState(true)
 
@@ -10,7 +10,16 @@ function UserReviews({review, user, userReviewUpdate}){
         setIsEditing(!isEditing)
         userReviewUpdate(updatedReview)
     }
-     
+ 
+    // function handleDeleteReview(){
+    //     console.log(review.id)
+    //     fetch(`/reviews/${review.id}`, {
+    //         method: "DELETE",
+    //     });
+        // onReviewDelte(review.id)
+        // onUserReviewDelete(review.id)
+    // }
+      
     return(
         <div>
             <div className="review-card"> 

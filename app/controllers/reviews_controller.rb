@@ -22,6 +22,12 @@ class ReviewsController < ApplicationController
         render json: review
     end
 
+    def destroy
+        byebug
+        review=Review.find_by(params[:id])
+        Review.destroy
+    end
+
     private
 
     def review_params
