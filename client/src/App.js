@@ -15,8 +15,9 @@ function App() {
   const [reviews, setReviews] = useState([])
   const [restaurants, setRestaurants] = useState([])
   const [userReviews, setUserReviews] = useState([])
+  const [citySelected, setCitySelected] = useState(true)
+  console.log(citySelected)
 
-  //auto login if user matches
   useEffect(() => {
     fetch ("/me").then((response) => {
       if (response.ok) {
@@ -27,7 +28,7 @@ function App() {
         }
     });
   }, []);
-
+ 
   useEffect(() => {
     fetch("/cities")
     .then((response) => {
@@ -91,11 +92,11 @@ function App() {
 
   return (
     <div>
-      <NavBar setUser={setUser}/>
+      <NavBar setUser={setUser} citySelected={citySelected} setCitySelected={setCitySelected}/>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/cities/*" element={<Cities cities={cities} restaurants={restaurants} reviews={reviews}/>}>
-            <Route path=":id/*" element={<City cities={cities} restaurants={restaurants} reviews={reviews}/>}/>
+        <Route exact path="/cities" element={<Cities cities={cities} restaurants={restaurants} reviews={reviews} citySelected={citySelected} setCitySelected={setCitySelected}/>}>
+            <Route path=":id" element={<City cities={cities} restaurants={restaurants} reviews={reviews}/>}/>
         </Route>
         <Route path ="/profile" element={<UserProfile user={user} userReviews={userReviews} userReviewUpdate={handleUpdateReviews}/>} />
         <Route path="/createnew" element={<CreateNew user={user} cities={cities} onAddCity={handleAddCity} onAddReview={handleAddReview} onAddRestaurant={handleAddRestaurant} restaurants={restaurants} onAddUserReview={handleAddUserReview}/>} />

@@ -1,9 +1,8 @@
 import React, {useState} from 'react' 
 import { Link, Outlet} from "react-router-dom"; 
 
-function Cities({cities, restaurants, reviews}){
-
-    const [citySelected, setCitySelected] = useState(true)
+function Cities({cities, restaurants, reviews, setCitySelected, citySelected}){
+    console.log(citySelected)
 
     return(
             <div>
@@ -12,14 +11,14 @@ function Cities({cities, restaurants, reviews}){
                         <h3><u>Select a City</u></h3>
                         <div className="city-container">
                             {cities.map((city) => 
-                                <Link key={city.id} to={`${city.id}`} onClick={() => setCitySelected((citySelected) => !citySelected)}>
+                                <Link key={city.id} to={`${city.id}`} onClick={() => setCitySelected(false)}>
                                     <button className="city-button">{city.name}</button>
                                     <br></br>
                                 </Link>
                             )}
                         </div>
                     </div>
-                ) : (
+                ) : ( 
                     <div>
                         <button className="back-button" onClick={() => setCitySelected((citySelected) => !citySelected)}>
                             <Link to="/cities">Back to Cities</Link>

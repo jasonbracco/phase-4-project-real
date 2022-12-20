@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
   
-  function NavBar({setUser}) {
+  function NavBar({setUser, citySelected, setCitySelected}) {
 
     function handleLogoutClick(){
       fetch("/logout", {
@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
     return ( 
       <div>
           <Link to="/" className="nav-link">Home</Link>
-          <Link to="/cities" className="nav-link">Places to Eat</Link>
+          <Link to="/cities" className="nav-link" onClick={() => setCitySelected(true)}>Places to Eat</Link>
           <Link to="/profile" className="nav-link">Profile</Link>
           <Link to="/createnew" className="nav-link">Create</Link>
           <Link onClick={handleLogoutClick} className="nav-link">Logout</Link>
