@@ -3,7 +3,7 @@ import Error from "../Error"
 import "../index.css"
 
 
-function CreateReview({onAddReview, restaurants, user}){
+function CreateReview({onAddReview, restaurants, user, onAddUserReview}){
 
     const [content, setContent] = useState("")
     const [restaurantID, setRestaurantID] = useState()
@@ -24,7 +24,10 @@ function CreateReview({onAddReview, restaurants, user}){
             })
         }).then((response) => {
             if (response.ok){
-                response.json().then((review) => onAddReview(review))
+                response.json().then((review) => {
+                    onAddReview(review)
+                    onAddUserReview(review)
+                })
             }
             else{
                 response.json().then((error) => setErrors(error.errors))

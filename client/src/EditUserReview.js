@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 
 function EditUserReview({review, onUpdateReview}){
 
-    console.log(review.id)
     const [contentChange, setContentChange] = useState(review.content)
 
     function handleEditReview(event) {

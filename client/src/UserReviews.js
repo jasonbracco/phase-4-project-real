@@ -10,7 +10,7 @@ function UserReviews({review, user, userReviewUpdate}){
         setIsEditing(!isEditing)
         userReviewUpdate(updatedReview)
     }
-    
+     
     return(
         <div>
             <div className="review-card"> 

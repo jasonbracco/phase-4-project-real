@@ -1,11 +1,11 @@
 import React from 'react'
  
-function UserRestaurants({review}){
+function UserRestaurants({restaurant}){
     
     return(
         
         <div className="user-restaurant-card">
-            {review.restaurant.name}
+            {restaurant}
         </div>
     )
 }

@@ -15,11 +15,11 @@ import { Link } from "react-router-dom";
 
     return ( 
       <div>
-          <Link to="/" className="nav-link" background= "darkblue">Home</Link>
-          <Link to="/cities" className="nav-link" background= "darkblue">Places to Eat</Link>
-          <Link to="/profile" className="nav-link" background= "darkblue" >Profile</Link>
-          <Link to="/createnew" className="nav-link" background= "darkblue">Create</Link>
-          <Link onClick={handleLogoutClick} className="nav-link" background= "darkblue">Logout</Link>
+          <Link to="/" className="nav-link">Home</Link>
+          <Link to="/cities" className="nav-link">Places to Eat</Link>
+          <Link to="/profile" className="nav-link">Profile</Link>
+          <Link to="/createnew" className="nav-link">Create</Link>
+          <Link onClick={handleLogoutClick} className="nav-link">Logout</Link>
       </div>
       );
     }

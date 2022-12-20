@@ -47,7 +47,7 @@ function App() {
         })
       }
     })
-  }, [user, userReviews])
+  }, [userReviews])
 
   if(!user) return <LoginPage setUser={setUser}/> 
 
@@ -61,6 +61,13 @@ function App() {
 
   function handleAddReview(newReview){
     setReviews([...reviews, newReview])
+    handleAddUserReview(reviews)
+  }
+
+  function handleAddUserReview(newUserReview){
+    if (newUserReview.user_id === user.id){
+      setUserReviews([...userReviews, newUserReview])
+    }
   }
 
   function handleUpdateReviews(updatedReview) {
@@ -71,8 +78,15 @@ function App() {
         return review;
       }
     });
+    const updatedUserReviews = userReviews.map((userReview) => {
+      if (userReview.id === updatedReview.id) {
+        return updatedReview;
+      } else {
+        return userReview;
+      }
+    });
     setReviews(updatedReviews)
-    setUserReviews(updatedReviews);
+    setUserReviews(updatedUserReviews)
   }
 
   return (
@@ -84,7 +98,7 @@ function App() {
             <Route path=":id/*" element={<City cities={cities} restaurants={restaurants} reviews={reviews}/>}/>
         </Route>
         <Route path ="/profile" element={<UserProfile user={user} userReviews={userReviews} userReviewUpdate={handleUpdateReviews}/>} />
-        <Route path="/createnew" element={<CreateNew user={user} cities={cities} onAddCity={handleAddCity} onAddReview={handleAddReview} onAddRestaurant={handleAddRestaurant} restaurants={restaurants} />} />
+        <Route path="/createnew" element={<CreateNew user={user} cities={cities} onAddCity={handleAddCity} onAddReview={handleAddReview} onAddRestaurant={handleAddRestaurant} restaurants={restaurants} onAddUserReview={handleAddUserReview}/>} />
       </Routes>
     </div> 
   )

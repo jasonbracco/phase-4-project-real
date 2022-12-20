@@ -4,6 +4,12 @@ import UserReviews from "../UserReviews"
 
 function UserProfile({user, userReviews, userReviewUpdate}){
 
+    const restaurantNames= userReviews.map((review) => {
+        return review.restaurant.name
+    })
+
+    const uniqueRestaurantNames=restaurantNames.filter((value, index, self) => self.indexOf(value) === index)
+
     return(
         <div className="profile-container">
             <div className="picture-container">
@@ -11,7 +17,7 @@ function UserProfile({user, userReviews, userReviewUpdate}){
             </div>
             <div className="user-info">
                 <br></br>
-                <br></br>
+                <br></br> 
                 {user.name}
                 <br></br>
                 <br></br>
@@ -26,8 +32,8 @@ function UserProfile({user, userReviews, userReviewUpdate}){
             <br></br>
             <h3 className="restaurants-i-have-visited">Restaurants I have visited:</h3>
             <div className="user-restaurant-container">
-                    {userReviews.map((review) => {
-                        return <UserRestaurants key={review.id} review={review} /> 
+                    {uniqueRestaurantNames.map((restaurant) => {
+                        return <UserRestaurants key={restaurant} restaurant={restaurant} /> 
                     })}
             </div>
             <h3>My Reviews:</h3>
