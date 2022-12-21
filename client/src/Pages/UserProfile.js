@@ -2,9 +2,21 @@ import React, {useEffect, useState} from "react"
 import UserRestaurants from "../UserRestaurants"
 import UserReviews from "../UserReviews"
 
-function UserProfile({user, reviewUpdate, deleteReview}){
+function UserProfile({user, reviewUpdate, handleDeleteReview, reviews}){
+
 
     const [userReviews, setUserReviews] = useState([])
+
+    //Try to see if i can do this in the back end on user response
+    //custom class method?
+    //request to user, 
+    //take both constants and make it a fetch request, replace userReviews
+    const restaurantNames= userReviews.map((review) => {
+        return review.restaurant.name
+    })
+
+    const uniqueRestaurantNames=restaurantNames.filter((value, index, self) => self.indexOf(value) === index)
+
 
     useEffect(() => {
         fetch (`/me`).then((response) => {
@@ -26,17 +38,18 @@ function UserProfile({user, reviewUpdate, deleteReview}){
         });
         setUserReviews(updatedReviews)
       }
+
+      function handleDeleteUserReview(id) {
+        const updatedReviewList = userReviews.filter((review) => review.id !== id);
+        setUserReviews(updatedReviewList);
+      }
       
-    const restaurantNames= userReviews.map((review) => {
-        return review.restaurant.name
-    })
 
     //Try to see if i can do this in the back end on user response
     //custom class method?
     //request to user, 
     //take both constants and make it a fetch request, replace userReviews
     
-    const uniqueRestaurantNames=restaurantNames.filter((value, index, self) => self.indexOf(value) === index)
 
     return(
         <div className="profile-container">
@@ -67,7 +80,7 @@ function UserProfile({user, reviewUpdate, deleteReview}){
             <h3>My Reviews:</h3>
             <div className="user-reviews">
                 {userReviews.map((review) => {
-                    return <UserReviews deleteReview={deleteReview} key={review.id} review={review} reviewUpdate={reviewUpdate} userReviewUpdate={handleUpdateUserReviews}/>
+                    return <UserReviews handleDeleteUserReview={handleDeleteUserReview} handleDeleteReview={handleDeleteReview} key={review.id} review={review} reviewUpdate={reviewUpdate} userReviewUpdate={handleUpdateUserReviews}/>
                 })}
             </div>
         </div>

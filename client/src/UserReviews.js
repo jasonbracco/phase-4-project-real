@@ -2,8 +2,8 @@ import React, {useState} from 'react'
 import EditUserReview from './EditUserReview'
 
 
-function UserReviews({review, reviewUpdate, userReviewUpdate, deleteReview}){
-    
+function UserReviews({review, reviewUpdate, userReviewUpdate, handleDeleteReview, handleDeleteUserReview}){
+
     const [isEditing, setIsEditing] = useState(true)
 
     function handleUpdateReview(updatedReview){
@@ -12,14 +12,12 @@ function UserReviews({review, reviewUpdate, userReviewUpdate, deleteReview}){
         userReviewUpdate(updatedReview)
     }
  
-    function handleDeleteReview(){
-        console.log(review.id)
+    function onDeleteReview(){
         fetch(`/reviews/${review.id}`, {
             method: "DELETE",
-        })
-        .then(console.log("deleted"))
-        deleteReview(review.id)
-        // onUserReviewDelete(review.id)
+        });
+        handleDeleteReview(review.id) 
+        handleDeleteUserReview(review.id)
     } 
       
     return(
@@ -36,7 +34,7 @@ function UserReviews({review, reviewUpdate, userReviewUpdate, deleteReview}){
                             <em className="review-content">{review.content}</em>
                             <br></br>
                             <br></br>
-                            <button className="delete-review-button" onClick={handleDeleteReview}>Delete Review</button>
+                            <button className="delete-review-button" onClick={onDeleteReview}>Delete Review</button>
                             <button onClick={() => setIsEditing((isEditing) => !isEditing)} className="edit-review-button">Edit Review</button>
                         </div>
                     ) :( 
