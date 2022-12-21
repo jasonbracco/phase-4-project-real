@@ -2,12 +2,13 @@ import React, {useState} from 'react'
 import EditUserReview from './EditUserReview'
 
 
-function UserReviews({review, userReviewUpdate}){
+function UserReviews({review, reviewUpdate, userReviewUpdate}){
 
     const [isEditing, setIsEditing] = useState(true)
 
     function handleUpdateReview(updatedReview){
         setIsEditing(!isEditing)
+        reviewUpdate(updatedReview) 
         userReviewUpdate(updatedReview)
     }
  
@@ -18,7 +19,7 @@ function UserReviews({review, userReviewUpdate}){
     //     });
         // onReviewDelte(review.id)
         // onUserReviewDelete(review.id)
-    // }
+    // } 
       
     return(
         <div>

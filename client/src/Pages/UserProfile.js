@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react"
 import UserRestaurants from "../UserRestaurants"
 import UserReviews from "../UserReviews"
 
-function UserProfile({user, userReviewUpdate}){
+function UserProfile({user, reviewUpdate}){
 
     const [userReviews, setUserReviews] = useState([])
 
@@ -15,6 +15,17 @@ function UserProfile({user, userReviewUpdate}){
             }
         });
       }, []);
+
+      function handleUpdateUserReviews(updatedReview) {
+        const updatedReviews = userReviews.map((review) => {
+          if (review.id === updatedReview.id) {
+            return updatedReview;
+          } else {
+            return review;
+          } 
+        });
+        setUserReviews(updatedReviews)
+      }
       
     const restaurantNames= userReviews.map((review) => {
         return review.restaurant.name
@@ -44,7 +55,7 @@ function UserProfile({user, userReviewUpdate}){
                 Bio: {user.bio}
             </div>
             <br></br>
-            <br></br>
+            <br></br> 
             <br></br>
             <br></br>
             <h3 className="restaurants-i-have-visited">Restaurants I have visited:</h3>
@@ -56,7 +67,7 @@ function UserProfile({user, userReviewUpdate}){
             <h3>My Reviews:</h3>
             <div className="user-reviews">
                 {userReviews.map((review) => {
-                    return <UserReviews key={review.id} review={review} userReviewUpdate={userReviewUpdate} />
+                    return <UserReviews key={review.id} review={review} reviewUpdate={reviewUpdate} userReviewUpdate={handleUpdateUserReviews}/>
                 })}
             </div>
         </div>

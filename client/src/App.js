@@ -67,7 +67,7 @@ function App() {
         return updatedReview;
       } else {
         return review;
-      }
+      } 
     });
     setReviews(updatedReviews)
   }
@@ -80,7 +80,7 @@ function App() {
         <Route exact path="/cities" element={<Cities cities={cities} citySelected={citySelected} setCitySelected={setCitySelected}/>}>
             <Route path=":id" element={<City cities={cities}/>}/>
         </Route>
-        <Route path ="/profile" element={<UserProfile  user={user} userReviewUpdate={handleUpdateReviews}/>}/>
+        <Route path ="/profile" reviews={reviews} element={<UserProfile  user={user} reviewUpdate={handleUpdateReviews}/>}/>
         <Route path="/createnew" element={<CreateNew user={user} cities={cities} onAddCity={handleAddCity} onAddReview={handleAddReview} onAddRestaurant={handleAddRestaurant} restaurants={restaurants}/>} />
       </Routes>
     </div> 

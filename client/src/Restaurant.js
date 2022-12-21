@@ -21,11 +21,12 @@ function Restaurant({restaurant}){
                                 {restaurant.reviews.map((review) => {  
                                     return <Review key={review.id} review={review}/>
                                 })}
+                            <br></br>
+                            <br></br>
                         </div>
                         ) : (
                             <div className="no-reviews">
                                 <em>No Reviews Yet</em>
-                                <br></br>
                                 <br></br>
                             </div>
                         )}
