@@ -26,7 +26,7 @@ function CreateReview({onAddReview, restaurants, user, onAddUserReview}){
             if (response.ok){
                 response.json().then((review) => {
                     onAddReview(review)
-                    onAddUserReview(review)
+                    // onAddUserReview(review)
                 })
             }
             else{

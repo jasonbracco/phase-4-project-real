@@ -6,6 +6,7 @@ import "./index.css"
    
 function Restaurant({restaurant}){
 
+    
     const howManyReviews = restaurant.reviews.length
 
     return( 

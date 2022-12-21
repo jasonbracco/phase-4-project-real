@@ -1,9 +1,21 @@
-import React from "react" 
+import React, {useEffect, useState} from "react" 
 import UserRestaurants from "../UserRestaurants"
 import UserReviews from "../UserReviews"
 
-function UserProfile({user, userReviews, userReviewUpdate}){
+function UserProfile({user, userReviewUpdate}){
 
+    const [userReviews, setUserReviews] = useState([])
+
+    useEffect(() => {
+        fetch (`/me`).then((response) => {
+          if (response.ok) {
+            response.json().then((user) => {
+                setUserReviews(user.reviews)
+            })
+            }
+        });
+      }, []);
+      
     const restaurantNames= userReviews.map((review) => {
         return review.restaurant.name
     })
@@ -48,7 +60,7 @@ function UserProfile({user, userReviews, userReviewUpdate}){
                 })}
             </div>
         </div>
-    )
+    ) 
 }
 
 export default UserProfile

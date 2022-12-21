@@ -14,7 +14,6 @@ function App() {
   const [cities, setCities] = useState([])
   const [reviews, setReviews] = useState([])
   const [restaurants, setRestaurants] = useState([])
-  const [userReviews, setUserReviews] = useState([])
   const [citySelected, setCitySelected] = useState(true)
 
   useEffect(() => {
@@ -22,12 +21,10 @@ function App() {
       if (response.ok) {
         response.json().then((user) => {
           setUser(user)
-          setUserReviews(user.reviews)
         })
         }
     });
   }, []);
-  //eliminate the setUserReviews state, just pass user as a prop and use user.reviews
  
   useEffect(() => {
     fetch("/cities")
@@ -48,7 +45,7 @@ function App() {
         })
       }
     })
-  }, [userReviews])
+  }, [user])
 
   if(!user) return <LoginPage setUser={setUser}/> 
 
@@ -62,13 +59,6 @@ function App() {
 
   function handleAddReview(newReview){
     setReviews([...reviews, newReview])
-    handleAddUserReview(reviews)
-  }
-
-  function handleAddUserReview(newUserReview){
-    if (newUserReview.user_id === user.id){
-      setUserReviews([...userReviews, newUserReview])
-    }
   }
 
   function handleUpdateReviews(updatedReview) {
@@ -79,15 +69,7 @@ function App() {
         return review;
       }
     });
-    const updatedUserReviews = userReviews.map((userReview) => {
-      if (userReview.id === updatedReview.id) {
-        return updatedReview;
-      } else {
-        return userReview;
-      }
-    });
     setReviews(updatedReviews)
-    setUserReviews(updatedUserReviews)
   }
 
   return (
@@ -98,8 +80,8 @@ function App() {
         <Route exact path="/cities" element={<Cities cities={cities} citySelected={citySelected} setCitySelected={setCitySelected}/>}>
             <Route path=":id" element={<City cities={cities}/>}/>
         </Route>
-        <Route path ="/profile" element={<UserProfile user={user} userReviews={userReviews} userReviewUpdate={handleUpdateReviews}/>} />
-        <Route path="/createnew" element={<CreateNew user={user} cities={cities} onAddCity={handleAddCity} onAddReview={handleAddReview} onAddRestaurant={handleAddRestaurant} restaurants={restaurants} onAddUserReview={handleAddUserReview}/>} />
+        <Route path ="/profile" element={<UserProfile  user={user} userReviewUpdate={handleUpdateReviews}/>}/>
+        <Route path="/createnew" element={<CreateNew user={user} cities={cities} onAddCity={handleAddCity} onAddReview={handleAddReview} onAddRestaurant={handleAddRestaurant} restaurants={restaurants}/>} />
       </Routes>
     </div> 
   )
