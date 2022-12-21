@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react"
 import UserRestaurants from "../UserRestaurants"
 import UserReviews from "../UserReviews"
 
-function UserProfile({user, reviewUpdate}){
+function UserProfile({user, reviewUpdate, deleteReview}){
 
     const [userReviews, setUserReviews] = useState([])
 
@@ -67,7 +67,7 @@ function UserProfile({user, reviewUpdate}){
             <h3>My Reviews:</h3>
             <div className="user-reviews">
                 {userReviews.map((review) => {
-                    return <UserReviews key={review.id} review={review} reviewUpdate={reviewUpdate} userReviewUpdate={handleUpdateUserReviews}/>
+                    return <UserReviews deleteReview={deleteReview} key={review.id} review={review} reviewUpdate={reviewUpdate} userReviewUpdate={handleUpdateUserReviews}/>
                 })}
             </div>
         </div>

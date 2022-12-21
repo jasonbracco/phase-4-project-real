@@ -72,6 +72,12 @@ function App() {
     setReviews(updatedReviews)
   }
 
+  function handleDeleteReview(id) {
+    console.log(id)
+    const updatedReviewList = reviews.filter((review) => review.id !== id);
+    setReviews(updatedReviewList);
+  }
+
   return (
     <div>
       <NavBar setUser={setUser} citySelected={citySelected} setCitySelected={setCitySelected}/>
@@ -80,7 +86,7 @@ function App() {
         <Route exact path="/cities" element={<Cities cities={cities} citySelected={citySelected} setCitySelected={setCitySelected}/>}>
             <Route path=":id" element={<City cities={cities}/>}/>
         </Route>
-        <Route path ="/profile" reviews={reviews} element={<UserProfile  user={user} reviewUpdate={handleUpdateReviews}/>}/>
+        <Route path ="/profile" deleteReview={handleDeleteReview} reviews={reviews} element={<UserProfile  user={user} reviewUpdate={handleUpdateReviews}/>}/>
         <Route path="/createnew" element={<CreateNew user={user} cities={cities} onAddCity={handleAddCity} onAddReview={handleAddReview} onAddRestaurant={handleAddRestaurant} restaurants={restaurants}/>} />
       </Routes>
     </div> 

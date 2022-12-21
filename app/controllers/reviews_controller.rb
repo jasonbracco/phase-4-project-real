@@ -23,9 +23,9 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
-        byebug
-        review=Review.find_by(params[:id])
-        Review.destroy
+        review=Review.find_by(id: params[:id])
+        review.destroy
+        head :no_content
     end
 
     private

@@ -5,8 +5,7 @@ function EditUserReview({review, onUpdateReview}){
     const [contentChange, setContentChange] = useState(review.content)
 
     function handleEditReview(event) {
-        event.preventDefault();
-    
+        event.preventDefault(); 
         fetch(`/reviews/${review.id}`, {
           method: "PATCH",
           headers: {
