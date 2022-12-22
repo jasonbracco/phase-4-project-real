@@ -58,25 +58,25 @@ function App() {
     setRestaurants([...restaurants, newRestaurant])
   }
 
-  // function handleAddReview(newReview){
-  //   setReviews([...reviews, newReview])
-  // }
+  function handleAddReview(newReview){
+    setReviews([...reviews, newReview])
+  }
 
-  // function handleUpdateReviews(updatedReview) {
-  //   const updatedReviews = reviews.map((review) => {
-  //     if (review.id === updatedReview.id) {
-  //       return updatedReview;
-  //     } else {
-  //       return review;
-  //     } 
-  //   });
-  //   setReviews(updatedReviews)
-  // }
+  function handleUpdateReviews(updatedReview) {
+    const updatedReviews = reviews.map((review) => {
+      if (review.id === updatedReview.id) {
+        return updatedReview;
+      } else {
+        return review;
+      } 
+    });
+    setReviews(updatedReviews)
+  }
 
-  // function handleDeleteReview(id) {
-  //   const updatedReviewList = reviews.filter((review) => review.id !== id);
-  //   setReviews(updatedReviewList);
-  // }
+  function handleDeleteReview(id) {
+    const updatedReviewList = reviews.filter((review) => review.id !== id);
+    setReviews(updatedReviewList);
+  }
  
   return (
     <div>
@@ -86,14 +86,8 @@ function App() {
         <Route exact path="/cities" element={<Cities cities={cities} citySelected={citySelected} setCitySelected={setCitySelected}/>}>
             <Route path=":id" element={<City/>}/>
         </Route>
-        <Route path ="/profile" element={<UserProfile 
-        // handleDeleteReview={handleDeleteReview} 
-        user={user} 
-        // reviewUpdate={handleUpdateReviews}
-        />}/>
-        <Route path="/createnew" element={<CreateNew user={user} cities={cities} onAddCity={handleAddCity} 
-        // onAddReview={handleAddReview} 
-        onAddRestaurant={handleAddRestaurant} restaurants={restaurants}/>} />
+        <Route path ="/profile" element={<UserProfile handleDeleteReview={handleDeleteReview} user={user} reviewUpdate={handleUpdateReviews}/>}/>
+        <Route path="/createnew" element={<CreateNew user={user} cities={cities} onAddCity={handleAddCity} onAddReview={handleAddReview} onAddRestaurant={handleAddRestaurant} restaurants={restaurants}/>} />
       </Routes>
     </div> 
   )
