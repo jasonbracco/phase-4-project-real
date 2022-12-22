@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react"
 import UserRestaurants from "../UserRestaurants"
 import UserReviews from "../UserReviews"
 
-function UserProfile({user, reviewUpdate, handleDeleteReview, reviews}){
+function UserProfile({user, reviewUpdate, handleDeleteReview}){
 
 
     const [userReviews, setUserReviews] = useState([])
@@ -11,12 +11,12 @@ function UserProfile({user, reviewUpdate, handleDeleteReview, reviews}){
     //custom class method?
     //request to user, 
     //take both constants and make it a fetch request, replace userReviews
+
     const restaurantNames= userReviews.map((review) => {
         return review.restaurant.name
     })
-
+ 
     const uniqueRestaurantNames=restaurantNames.filter((value, index, self) => self.indexOf(value) === index)
-
 
     useEffect(() => {
         fetch (`/me`).then((response) => {
@@ -27,6 +27,7 @@ function UserProfile({user, reviewUpdate, handleDeleteReview, reviews}){
             }
         });
       }, []);
+      console.log(userReviews)
 
       function handleUpdateUserReviews(updatedReview) {
         const updatedReviews = userReviews.map((review) => {
@@ -43,13 +44,6 @@ function UserProfile({user, reviewUpdate, handleDeleteReview, reviews}){
         const updatedReviewList = userReviews.filter((review) => review.id !== id);
         setUserReviews(updatedReviewList);
       }
-      
-
-    //Try to see if i can do this in the back end on user response
-    //custom class method?
-    //request to user, 
-    //take both constants and make it a fetch request, replace userReviews
-    
 
     return(
         <div className="profile-container">

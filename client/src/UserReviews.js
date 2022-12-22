@@ -2,22 +2,25 @@ import React, {useState} from 'react'
 import EditUserReview from './EditUserReview'
 
 
-function UserReviews({review, reviewUpdate, userReviewUpdate, handleDeleteReview, handleDeleteUserReview}){
+function UserReviews({review, 
+    // reviewUpdate, userReviewUpdate, handleDeleteReview, handleDeleteUserReview
+}){
 
     const [isEditing, setIsEditing] = useState(true)
 
     function handleUpdateReview(updatedReview){
         setIsEditing(!isEditing)
-        reviewUpdate(updatedReview) 
-        userReviewUpdate(updatedReview)
+        // reviewUpdate(updatedReview) 
+        // userReviewUpdate(updatedReview)
     }
  
     function onDeleteReview(){
         fetch(`/reviews/${review.id}`, {
             method: "DELETE",
         });
-        handleDeleteReview(review.id) 
-        handleDeleteUserReview(review.id)
+        console.log(review.id)
+        // handleDeleteReview(review.id) 
+        // handleDeleteUserReview(review.id)
     } 
       
     return(
@@ -40,7 +43,9 @@ function UserReviews({review, reviewUpdate, userReviewUpdate, handleDeleteReview
                     ) :( 
                         <div>
                             <button onClick={() => setIsEditing((isEditing) => !isEditing)}>Back</button>
-                            <EditUserReview review={review} onUpdateReview={handleUpdateReview}/>
+                            <EditUserReview review={review} 
+                            // onUpdateReview={handleUpdateReview}
+                            />
                         </div>
                     )}
                 </div> 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
   
-  function NavBar({setUser, citySelected, setCitySelected}) {
+  function NavBar({setUser, setCitySelected}) {
 
     function handleLogoutClick(){
       fetch("/logout", {

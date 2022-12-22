@@ -5,9 +5,14 @@ import './index.css'
  
  
 function City() {
+
     const {id} = useParams()
 
     const [cityRestaurants, setCityRestaurants] = useState([])
+
+
+    //Could use this as well but wanted a back end call 
+    // console.log(cities.find((city) => city.id ==id))
 
     useEffect(() => {
         fetch (`/cities/${id}`).then((response) => {
@@ -18,7 +23,7 @@ function City() {
             }
         });
       }, [id]);
-
+ 
       const howManyRestaurants = cityRestaurants.length
       
     return(

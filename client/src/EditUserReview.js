@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 
-function EditUserReview({review, onUpdateReview}){
+function EditUserReview({review, 
+  // onUpdateReview
+}){
 
     const [contentChange, setContentChange] = useState(review.content)
 
@@ -15,8 +17,8 @@ function EditUserReview({review, onUpdateReview}){
             content: contentChange,
           }),
         })
-          .then(response => response.json())
-          .then((updatedReview) => onUpdateReview(updatedReview));
+          // .then(response => response.json())
+          // .then((updatedReview) => onUpdateReview(updatedReview));
     }
 
     return(

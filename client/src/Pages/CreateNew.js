@@ -16,4 +16,4 @@ function CreateNew({user, cities, onAddCity, onAddReview, restaurants, onAddRest
     
 }
 
-export default CreateNew
+export default CreateNew 

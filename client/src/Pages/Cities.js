@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, Outlet} from "react-router-dom"; 
  
 function Cities({cities, setCitySelected, citySelected}){
-
+ 
     return(
             <div>
                 {citySelected ? (
