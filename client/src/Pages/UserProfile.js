@@ -27,7 +27,6 @@ function UserProfile({user, reviewUpdate, handleDeleteReview}){
             }
         });
       }, []);
-      console.log(userReviews)
 
       function handleUpdateUserReviews(updatedReview) {
         const updatedReviews = userReviews.map((review) => {

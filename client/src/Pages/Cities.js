@@ -3,7 +3,7 @@ import { Link, Outlet} from "react-router-dom";
  
 function Cities({cities, setCitySelected, citySelected}){
  
-    return(
+    return( 
             <div>
                 {citySelected ? (
                     <div>
@@ -23,7 +23,7 @@ function Cities({cities, setCitySelected, citySelected}){
                             <Link to="/cities">Back to Cities</Link>
                         </button> 
                         <div>
-                            <Outlet/>
+                            <Outlet cities={cities}/>
                         </div>
                     </div>
                 )}

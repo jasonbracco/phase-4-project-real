@@ -84,7 +84,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route exact path="/cities" element={<Cities cities={cities} citySelected={citySelected} setCitySelected={setCitySelected}/>}>
-            <Route path=":id" element={<City/>}/>
+            <Route path=":id" element={<City cities={cities}/>}/>
         </Route>
         <Route path ="/profile" element={<UserProfile handleDeleteReview={handleDeleteReview} user={user} reviewUpdate={handleUpdateReviews}/>}/>
         <Route path="/createnew" element={<CreateNew user={user} cities={cities} onAddCity={handleAddCity} onAddReview={handleAddReview} onAddRestaurant={handleAddRestaurant} restaurants={restaurants}/>} />
