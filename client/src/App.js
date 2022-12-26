@@ -6,7 +6,7 @@ import NavBar from "./NavBar"
 import Cities from "./Pages/Cities"
 import UserProfile from "./Pages/UserProfile"
 import CreateNew from "./Pages/CreateNew"
-import City from './City'
+import City from './Other/City'
 
 function App() {
 

@@ -19,7 +19,7 @@ import { Link } from "react-router-dom";
           <Link to="/cities" className="nav-link" onClick={() => setCitySelected(true)}>Places to Eat</Link>
           <Link to="/profile" className="nav-link">Profile</Link>
           <Link to="/createnew" className="nav-link">Create</Link>
-          <Link onClick={handleLogoutClick} className="nav-link">Logout</Link>
+          <Link  to="/" onClick={handleLogoutClick} className="nav-link">Logout</Link>
       </div>
       );
     }

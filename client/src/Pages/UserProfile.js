@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react" 
-import UserRestaurants from "../UserRestaurants"
-import UserReviews from "../UserReviews"
+import UserRestaurants from "../Other/UserRestaurants"
+import UserReviews from "../Other/UserReviews"
 
 function UserProfile({user, reviewUpdate, handleDeleteReview}){
 
