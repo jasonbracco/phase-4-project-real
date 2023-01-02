@@ -37,9 +37,7 @@ function SignupForm({setUser}){
             }
         })
     }
-
-    console.log(errors)
-
+    
     return (
         <form onSubmit={handleSignupSubmit}>
             <h3>Username:</h3>

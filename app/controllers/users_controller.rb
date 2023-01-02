@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     skip_before_action :authorize, only: :create
-
+ 
     #post: signup
     def create
         user=User.create!(user_params)
@@ -20,3 +20,4 @@ class UsersController < ApplicationController
     end
 
 end
+ 
